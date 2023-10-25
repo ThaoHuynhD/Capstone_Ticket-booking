@@ -36,13 +36,13 @@ export default function CarouselBanner() {
         })}
         <div>
           <img
-            src='http://demo.amytheme.com/movie/demo/elementor-single-cinema/wp-content/uploads/sites/2/2022/05/img_24.jpg'
+            src='./image/carousel/carousel_1.jpg'
             className=' w-full  aspect-auto h-64 sm:h-80 md:h-600 '
           />
         </div>
         <div>
           <img
-            src='http://demo.amytheme.com/movie/demo/elementor-single-cinema/wp-content/uploads/sites/2/2022/05/img_27.jpg'
+            src='./image/carousel/carousel_2.jpg'
             className=' w-full aspect-auto h-64 sm:h-80 md:h-600 '
           />
         </div>
