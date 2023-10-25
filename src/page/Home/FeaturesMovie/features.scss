@@ -1,0 +1,69 @@
+.features_header {
+    .seperator {
+        display: inline-block;
+        flex: 1 0;
+        background: url(../../../../public/image/seperator-bg.png) repeat-x center;
+        position: relative;
+    }
+    h2 {
+        font-size: 35px;
+        font-weight: 700;
+        padding: 0 12px;
+        color: #202020;
+    }
+}
+.features__list {
+    .feature__item {
+        position: relative;
+        overflow: hidden;
+        .feature__img {
+            position: relative;
+            height: 70%;
+            img {
+                width: 100%;
+                height: 100%;
+                border-bottom: 3px solid #fe7900;
+                transform: scale(1);
+                transition: all 0.8s;
+            }
+        }
+        .features__info {
+            h2 {
+                font-size: 20px;
+                font-weight: 600;
+            }
+            span {
+                font-size: 13px;
+                color: #ccc;
+            }
+            p {
+                font-size: 15px;
+                color: #999;
+            }
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.85);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px 15px;
+            opacity: 0;
+            transform: rotateY(180deg);
+            transition: all 0.8s;
+            .overlay__info {
+                // span {
+                //     // color: #999;
+                // }
+            }
+        }
+        &:hover .overlay {
+            opacity: 1;
+            transform: rotateY(360deg);
+        }
+        &:hover img {
+            transform: scale(2);
+        }
+    }
+}
