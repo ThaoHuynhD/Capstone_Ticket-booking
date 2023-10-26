@@ -81,7 +81,6 @@ export default function UserInfo() {
     };
     updateUserInfo(newValues)
       .then((res) => {
-        console.log("🚀 ~ file: UserInfo.js:85 ~ .then ~ res:", res);
         Swal.fire(
           "Update succeed!",
           "You'll need to sign in again!",

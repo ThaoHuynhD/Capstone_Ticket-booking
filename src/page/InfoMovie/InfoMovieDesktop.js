@@ -78,6 +78,7 @@ export default function InfoMovieDesktop() {
           <div className='grid grid-cols-4 gap-10 ' id='infoMovieDesktop'>
             <div>
               <img
+                loading='lazy'
                 src={infoMovie.hinhAnh}
                 style={{ width: "100%" }}
                 className='rounded-md hover:animate-pulse duration-500'
@@ -87,7 +88,7 @@ export default function InfoMovieDesktop() {
                   className='w-full py-3 mt-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 duration-300'
                   onClick={onOpenModal}
                 >
-                  Xem Trailer
+                  Watch Trailer
                 </button>
                 <Modal
                   open={open}

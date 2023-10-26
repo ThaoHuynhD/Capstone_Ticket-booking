@@ -17,6 +17,7 @@ export default function Home() {
       <LatestNew />
       <Footer />
       <FloatButton.BackTop
+        shape='square'
         icon={
           <i className='fa-solid fa-arrow-up hover:text-white duration-300'></i>
         }

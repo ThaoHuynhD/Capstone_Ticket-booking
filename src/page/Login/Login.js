@@ -22,7 +22,7 @@ export default function Login() {
           <div>
             <NavLink to={"/register"}>
               <span className='text-blue-500 hover:text-blue-800'>
-                Bạn chưa có tài khoản? Đăng ký
+                Have you got an account ? Create account here!
               </span>
             </NavLink>
           </div>

@@ -42,7 +42,7 @@
             }
         }
         .overlay {
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: rgba(0, 0, 0, 0.7);
             position: absolute;
             top: 0;
             left: 0;
@@ -52,11 +52,6 @@
             opacity: 0;
             transform: rotateY(180deg);
             transition: all 0.8s;
-            .overlay__info {
-                // span {
-                //     // color: #999;
-                // }
-            }
         }
         &:hover .overlay {
             opacity: 1;

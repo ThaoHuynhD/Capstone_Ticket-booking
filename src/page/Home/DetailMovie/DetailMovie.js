@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getListMovie } from "../../../Services/api";
 
 import { NavLink } from "react-router-dom";

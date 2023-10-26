@@ -20,7 +20,7 @@ export default function LatestNew() {
         <div className=' container'>
           <div className='grid grid-cols-1 gap-4 lg:grid-cols-4 lg:grid-rows-2 lg:gap-8'>
             <div>
-              <img src='./image/news/new_1.jpg' />
+              <img src='./image/news/new_1.jpg' loading='lazy' />
               <div className='flex flex-col items-center'>
                 <h3 className='font-bold text-center text-xl mb-4'>
                   Six book-to-film adaptations to get excited about this autumn
@@ -31,7 +31,12 @@ export default function LatestNew() {
               </div>
             </div>
             <div className='lg:row-span-2 lg:col-span-2'>
-              <img src='./image/news/new_2.jpg' width={750} height={500} />
+              <img
+                loading='lazy'
+                src='./image/news/new_2.jpg'
+                width={750}
+                height={500}
+              />
               <div className='flex flex-col items-center'>
                 <h3 className='font-bold text-center text-xl '>
                   Win a Wizarding World holiday with Fantastic
@@ -46,7 +51,7 @@ export default function LatestNew() {
               </div>
             </div>
             <div>
-              <img src='./image/news/new_3.jpg' />
+              <img loading='lazy' src='./image/news/new_3.jpg' />
               <div className='flex flex-col items-center'>
                 <h3 className='font-bold text-center text-xl mb-4'>
                   Doctor Strange assembles with the Avengers
@@ -57,7 +62,7 @@ export default function LatestNew() {
               </div>
             </div>
             <div>
-              <img src='./image/news/new_2.jpg' />
+              <img loading='lazy' src='./image/news/new_2.jpg' />
               <div className='flex flex-col items-center'>
                 <h3 className='font-bold text-center text-xl mb-4'>
                   The Beatles: Eight Days a Week – The Touring
@@ -68,7 +73,7 @@ export default function LatestNew() {
               </div>
             </div>
             <div>
-              <img src='./image/news/new_4.jpg' />
+              <img loading='lazy' src='./image/news/new_4.jpg' />
               <div className='flex flex-col items-center'>
                 <h3 className='font-bold text-center text-xl mb-4'>
                   5 movies to watch this week (29 Sep 2016)

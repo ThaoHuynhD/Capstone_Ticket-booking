@@ -67,13 +67,14 @@ export default function FeaturesMovie() {
                   <span>Genre: </span> Mystery
                 </p>
                 <div className='flex items-center text-white'>
-                  <div className='bg-orange-400 p-1 mr-4 rounded-md text-black font-bold'>
+                  <div className='bg-yellow-400 p-1 mr-4 rounded-md text-black font-bold'>
                     IMDb
                   </div>
                   <span>{item.danhGia}</span>
                 </div>
               </div>
               <div className='flex justify-around'>
+                {/* modal video trailer */}
                 <button
                   onClick={() => {
                     dispatch(getTrailer(item.trailer));

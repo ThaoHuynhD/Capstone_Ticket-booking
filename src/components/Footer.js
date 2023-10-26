@@ -13,7 +13,11 @@ export default function Footer() {
       >
         <div className='container grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-7 '>
           <div>
-            <img src='../image/logo_movie.png' className='mb-4 md:mt-8' />
+            <img
+              loading='lazy'
+              src='../image/logo_movie.png'
+              className='mb-4 md:mt-8'
+            />
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -54,7 +58,11 @@ export default function Footer() {
             <h4>Recent Posts</h4>
             <div className='mb-4 border-b border-white '>
               <div className='flex mb-5 recentPost__top'>
-                <img src='../image/footer/footIMG_1.jpg' width={100} />
+                <img
+                  loading='lazy'
+                  src='../image/footer/footIMG_1.jpg'
+                  width={100}
+                />
                 <div className='recentPost__info'>
                   <h5>
                     Six book-to-film adaptations to get excited about this
@@ -67,7 +75,11 @@ export default function Footer() {
             </div>
             <div className='border-b border-white recentPost__bot'>
               <div className='flex mb-5 recentPost__top'>
-                <img src='../image/footer/footIMG_2.jpg' width={100} />
+                <img
+                  loading='lazy'
+                  src='../image/footer/footIMG_2.jpg'
+                  width={100}
+                />
                 <div className='recentPost__info'>
                   <h5>The Beatles: Eight Days a Week - The Touring</h5>
                   <span>April 28, 2022</span>

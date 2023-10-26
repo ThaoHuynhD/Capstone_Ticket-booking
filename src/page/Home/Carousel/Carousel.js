@@ -10,8 +10,8 @@ export default function CarouselBanner() {
 
   let fetchData = async () => {
     try {
-      let response = await getBanner();
-      setBanner(response.data.content);
+      let res = await getBanner();
+      setBanner(res.data.content);
     } catch (err) {
       message.error("Something wrong");
     }
@@ -22,28 +22,29 @@ export default function CarouselBanner() {
   return (
     <div className='relative'>
       <Carousel autoplay ref={ref} dots={false}>
+        <div>
+          <img
+            loading='lazy'
+            src='./image/carousel/carousel_2.jpg'
+            className=' w-full aspect-auto h-64 sm:h-80 md:h-600 '
+          />
+        </div>
         {banner.slice(0, 2).map((item, index) => {
           return (
-            <Fragment key={index}>
-              <div>
-                <img
-                  src={item.hinhAnh}
-                  className=' w-full md:aspect-video aspect-auto h-64 sm:h-80 md:h-600 '
-                />
-              </div>
-            </Fragment>
+            <div key={index}>
+              <img
+                loading='lazy'
+                src={item.hinhAnh}
+                className=' w-full md:aspect-video aspect-auto h-64 sm:h-80 md:h-600 '
+              />
+            </div>
           );
         })}
         <div>
           <img
+            loading='lazy'
             src='./image/carousel/carousel_1.jpg'
             className=' w-full  aspect-auto h-64 sm:h-80 md:h-600 '
-          />
-        </div>
-        <div>
-          <img
-            src='./image/carousel/carousel_2.jpg'
-            className=' w-full aspect-auto h-64 sm:h-80 md:h-600 '
           />
         </div>
       </Carousel>

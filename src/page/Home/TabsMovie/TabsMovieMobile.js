@@ -34,7 +34,7 @@ export default function TabsMovieMobile() {
       return (
         <div key={index} className='mb-4 pb-5 border-b-2 border-b-zinc-200'>
           <div className='flex items-center mb-5'>
-            <img src={phim.hinhAnh} style={{ width: 60 }} />
+            <img loading='lazy' src={phim.hinhAnh} style={{ width: 60 }} />
             <div className='ml-5'>
               <p className='text-base md:text-lg lg:text-xl font-semibold '>
                 {phim.tenPhim}

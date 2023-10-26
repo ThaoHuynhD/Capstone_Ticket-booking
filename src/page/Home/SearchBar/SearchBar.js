@@ -12,14 +12,16 @@ export default function SearchBar() {
   const [lichChieuPhim, setLichChieuPhim] = useState({});
   const [maLichChieu, setMaLichChieu] = useState("");
   const [maCumRap, setMaCumRap] = useState("");
+  const [disableBtn, setDisableBtn] = useState(true);
   const [classBtnBuy, setClassBtnBuy] = useState(
     "cursor-no-drop bg-zinc-500 text-white",
   );
-  const [disableBtn, setDisableBtn] = useState(true);
+  let navigate = useNavigate();
   const infoNgayChieu = [];
   const { info } = useSelector((state) => state.userReducer);
-  let navigate = useNavigate();
-
+  //search tên phim
+  const filterOption = (input, option) =>
+    (option?.label ?? "").toLowerCase().includes(input.toLowerCase());
   useEffect(() => {
     let fetchData = async () => {
       try {
@@ -38,13 +40,14 @@ export default function SearchBar() {
           <Select.Option
             className='text-xs font-bold sm:text-sm md:text-base'
             value={item.maPhim}
+            label={item.tenPhim}
           >
             <Popover
               trigger='hover'
               placement='right'
               content={
                 <div className='relative'>
-                  <img src={item.hinhAnh} width={150} />
+                  <img loading='lazy' src={item.hinhAnh} width={150} />
                   <NavLink to={`/detail/${item.maPhim}`}>
                     <button className='absolute left-1/2 bottom-0 translate-x-[-50%] rounded  px-3 py-1 bg-orange-400 text-white hover:bg-orange-500 duration-300'>
                       <span>Detail</span>
@@ -166,6 +169,8 @@ export default function SearchBar() {
           allowClear={true}
           onChange={handleChange}
           bordered={false}
+          showSearch={true}
+          filterOption={filterOption}
           className='w-full font-bold text-xs sm:text-sm md:text-base text'
         >
           <Select.Option value={0}>Movie</Select.Option>
