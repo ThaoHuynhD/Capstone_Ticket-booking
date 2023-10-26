@@ -34,7 +34,12 @@ export default function TabsMovieMobile() {
       return (
         <div key={index} className='mb-4 pb-5 border-b-2 border-b-zinc-200'>
           <div className='flex items-center mb-5'>
-            <img loading='lazy' src={phim.hinhAnh} style={{ width: 60 }} />
+            <img
+              loading='lazy'
+              src={phim.hinhAnh}
+              style={{ width: 60 }}
+              alt={phim.hinhAnh}
+            />
             <div className='ml-5'>
               <p className='text-base md:text-lg lg:text-xl font-semibold '>
                 {phim.tenPhim}
@@ -77,7 +82,9 @@ export default function TabsMovieMobile() {
     return danhSachHeThongRap.map((heThongRap, index) => {
       return {
         key: index,
-        label: <img src={heThongRap.logo} className='w-16' />,
+        label: (
+          <img src={heThongRap.logo} className='w-16' alt={heThongRap.logo} />
+        ),
         children: (
           <Collapse
             defaultActiveKey={["1"]}

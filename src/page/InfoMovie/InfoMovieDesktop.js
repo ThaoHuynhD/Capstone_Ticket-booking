@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getInfoMovie, getInfoShowtimes } from "../../Services/api";
-import { Progress, Rate, Tag } from "antd";
+import { Progress, Rate } from "antd";
 import { Tabs } from "antd";
 import moment from "moment/moment";
 import { NavLink, useParams } from "react-router-dom";

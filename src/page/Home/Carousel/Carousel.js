@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { getBanner } from "../../../Services/api";
 
 import SearchBar from "../SearchBar/SearchBar";
