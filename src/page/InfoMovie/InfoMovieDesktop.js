@@ -106,7 +106,7 @@ export default function InfoMovieDesktop() {
                     },
                   }}
                   onClose={onCloseModal}
-                  closeIcon={<></>}
+                  closeIcon={<i className='fa-solid fa-x text-white'></i>}
                   center
                 >
                   <ReactPlayer
@@ -246,7 +246,7 @@ export default function InfoMovieDesktop() {
                                           borderColor: "#e4e4e4",
                                           background: `rgba(246,246,246,0.5)`,
                                         }}
-                                        className='font-semibold  px-3 py-1 text-center  rounded-lg border duration-300 hover:scale-110  cursor-pointer'
+                                        className='font-semibold  px-3 py-1 text-center  border duration-300 hover:scale-110  cursor-pointer'
                                       >
                                         <span className='text-gray-400 '>
                                           {moment(

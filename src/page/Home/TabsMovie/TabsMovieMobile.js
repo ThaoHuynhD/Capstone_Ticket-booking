@@ -42,7 +42,7 @@ export default function TabsMovieMobile() {
               <p>120 Phút</p>
             </div>
           </div>
-          <div className='grid grid-cols-2 gap-4 md:grid-cols-1 md:gap-3 lg:grid-cols-3 lg:gap-5'>
+          <div className='grid grid-cols-1 gap-4 '>
             {phim.lstLichChieuTheoPhim.slice(0, 8).map((gioChieu, index) => {
               return (
                 <NavLink

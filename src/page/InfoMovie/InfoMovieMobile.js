@@ -192,7 +192,7 @@ export default function InfoMovieMobile() {
                                   </div>
                                 ),
                                 children: (
-                                  <div className='grid grid-cols-2 gap-6'>
+                                  <div className='grid grid-cols-1 gap-6'>
                                     {item.lichChieuPhim?.map(
                                       (lichChieu, index) => {
                                         return (
@@ -206,7 +206,7 @@ export default function InfoMovieMobile() {
                                                 borderColor: "#e4e4e4",
                                                 background: `rgba(246,246,246,0.5)`,
                                               }}
-                                              className='font-semibold  px-3 py-1 text-center  rounded-lg border duration-300 hover:scale-110 cursor-pointer'
+                                              className='font-semibold  px-3 py-1 text-center  border duration-300 hover:scale-110 cursor-pointer'
                                             >
                                               <span className='text-gray-400 '>
                                                 {moment(

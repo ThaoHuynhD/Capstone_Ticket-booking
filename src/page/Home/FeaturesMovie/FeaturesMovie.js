@@ -35,11 +35,8 @@ export default function FeaturesMovie() {
             <div className='feature__img'>
               <img src={item.hinhAnh} loading='lazy' />
             </div>
-            <div className='features__info grid grid-rows-3 gap-2'>
-              <h3
-                className='text-center font-bold mt-2'
-                style={{ fontSize: "18px" }}
-              >
+            <div className='features__info flex flex-col'>
+              <h3 className='text-center font-bold mt-1 md:mt-2 text-base md:text-lg'>
                 {item.tenPhim}
               </h3>
               <span>
@@ -47,8 +44,8 @@ export default function FeaturesMovie() {
                   ? item.moTa.slice(0, 50) + "..."
                   : item.moTa}
               </span>
-              <p>
-                Release: <span>{moment(item.ngayKhoiChieu).format("LL")}</span>
+              <p className='text-sm md:text-base'>
+                Release: <span>{moment(item.ngayKhoiChieu).format("ll")}</span>
                 <span> - </span>
                 <span>{moment(item.ngayKhoiChieu).format("LT")}</span>
               </p>
