@@ -17,11 +17,13 @@ export default function Login() {
           <div className='text-center text-2xl w-9 h-9 leading-9 bg-orange-400 text-white rounded-full'>
             <UserOutlined />
           </div>
-          <h3 className='text-center font-bold'>SIGN IN</h3>
+          <h3 className='text-center font-bold my-3 text-xl  md:text-2xl'>
+            SIGN IN
+          </h3>
           <FormInput />
           <div>
             <NavLink to={"/register"}>
-              <span className='text-blue-500 hover:text-blue-800'>
+              <span className='text-blue-500 hover:text-blue-800 text-[0.7rem] md:text-base'>
                 Have you got an account ? Create account here!
               </span>
             </NavLink>

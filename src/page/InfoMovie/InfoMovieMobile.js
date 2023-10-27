@@ -99,7 +99,7 @@ export default function InfoMovieMobile() {
               },
             }}
             onClose={onCloseModal}
-            closeIcon={<></>}
+            closeIcon={<i className='fa-solid fa-x text-white'></i>}
             center
           >
             <ReactPlayer

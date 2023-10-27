@@ -106,7 +106,7 @@ export default function UserInfo() {
             <h1 className='text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest'>
               SETTINGS
             </h1>
-            <p className='lg:w-2/3  leading-relaxed text-base'>
+            <p className='lg:w-2/3 leading-relaxed text-base'>
               Infomation maybe change
             </p>
             <Form

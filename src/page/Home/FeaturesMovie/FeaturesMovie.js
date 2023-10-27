@@ -95,7 +95,7 @@ export default function FeaturesMovie() {
                     },
                   }}
                   onClose={onCloseModal}
-                  closeIcon={<></>}
+                  closeIcon={<i className='fa-solid fa-x text-white'></i>}
                   center
                 >
                   <ReactPlayer

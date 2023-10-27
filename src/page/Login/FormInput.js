@@ -100,7 +100,7 @@ export default function FormInput() {
         <Button
           type='undefined'
           htmlType='submit'
-          className='bg-orange-400 hover:bg-orange-600 w-full shadow-md'
+          className='bg-orange-400 hover:bg-orange-500 w-full shadow-md'
         >
           Submit
         </Button>
