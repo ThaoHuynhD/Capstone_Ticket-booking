@@ -7,7 +7,7 @@ import { NavLink, useParams } from "react-router-dom";
 import "./info.scss";
 import ReactPlayer from "react-player";
 import { Modal } from "react-responsive-modal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   handleLoadingOn,
   handleLoadingOff,
@@ -17,6 +17,8 @@ export default function InfoMovieMobile() {
   const [infoMovie, setInfoMovie] = useState({});
   const [infoShowTime, setInfoShowTime] = useState({});
   const [open, setOpen] = useState(false);
+  const { info } = useSelector((state) => state.userReducer);
+
   const dispatch = useDispatch();
 
   const onOpenModal = () => setOpen(true);
@@ -197,7 +199,11 @@ export default function InfoMovieMobile() {
                                       (lichChieu, index) => {
                                         return (
                                           <NavLink
-                                            to={`/ticketroom/${lichChieu.maLichChieu}`}
+                                            to={
+                                              info
+                                                ? `/ticketroom/${lichChieu.maLichChieu}`
+                                                : "/login"
+                                            }
                                             key={index}
                                           >
                                             <div

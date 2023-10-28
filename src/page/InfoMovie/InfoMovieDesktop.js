@@ -9,7 +9,7 @@ import Footer from "../../components/Footer";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import ReactPlayer from "react-player";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   handleLoadingOff,
   handleLoadingOn,
@@ -19,6 +19,7 @@ export default function InfoMovieDesktop() {
   const [infoMovie, setInfoMovie] = useState({});
   const [infoShowTime, setInfoShowTime] = useState({});
   const [open, setOpen] = useState(false);
+  const { info } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
   const onOpenModal = () => setOpen(true);
@@ -238,7 +239,11 @@ export default function InfoMovieDesktop() {
                                   return (
                                     <NavLink
                                       key={index}
-                                      to={`/ticketroom/${gioChieu.maLichChieu}`}
+                                      to={
+                                        info
+                                          ? `/ticketroom/${gioChieu.maLichChieu}`
+                                          : "/login"
+                                      }
                                     >
                                       <div
                                         id='btnDatVe'

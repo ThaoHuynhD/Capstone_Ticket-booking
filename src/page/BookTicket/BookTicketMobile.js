@@ -52,7 +52,7 @@ export default function BookTicketMobile() {
     thongTinDatVe.maLichChieu = Number(param.id);
     thongTinDatVe.danhSachVe = danhSachGheDangDat;
     Swal.fire({
-      title: "Are you sure ?",
+      title: "Bạn có muốn thanh toán ?",
       icon: "info",
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
@@ -216,7 +216,7 @@ export default function BookTicketMobile() {
             Thanh toán
           </button>
           <Drawer
-            title='Booking infomation'
+            title='Thông tin thanh toán'
             placement='right'
             onClose={onClose}
             open={open}
