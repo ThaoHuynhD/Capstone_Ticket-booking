@@ -45,6 +45,7 @@ const bookingReducer = createSlice({
       state.isDisabled = true;
       state.classBtnBuyTicket = "bg-zinc-500 cursor-no-drop";
       state.radioValue = 0;
+      state.classBtnCountinue = "bg-zinc-500 cursor-no-drop";
     },
     handlePayments: (state, action) => {
       state.radioValue = action.payload;
