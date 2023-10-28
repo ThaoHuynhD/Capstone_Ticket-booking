@@ -23,10 +23,11 @@ export default function LatestNew() {
               <img src='./image/news/new_1.jpg' loading='lazy' />
               <div className='flex flex-col items-center'>
                 <h3 className='font-bold text-center text-xl mb-4'>
-                  Six book-to-film adaptations to get excited about this autumn
+                  Sáu cuốn sách được chuyển thể thành phim đáng mong đợi vào mùa
+                  thu này
                 </h3>
                 <button className='px-3 py-1 rounded-2xl bg-orange-400 hover:bg-orange-600 text-white text-sm duration-300'>
-                  Read more
+                  Xem thêm
                 </button>
               </div>
             </div>
@@ -39,14 +40,14 @@ export default function LatestNew() {
               />
               <div className='flex flex-col items-center'>
                 <h3 className='font-bold text-center text-xl '>
-                  Win a Wizarding World holiday with Fantastic
+                  Giành được kỳ nghỉ ở Thế giới phù thủy với Fantastic
                 </h3>
                 <p className='text-sm my-4'>
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium doloremque
                 </p>
                 <button className='px-3 py-1 rounded-2xl bg-orange-400 hover:bg-orange-600 text-white text-sm duration-300'>
-                  Read more
+                  Xem thêm
                 </button>
               </div>
             </div>
@@ -54,10 +55,10 @@ export default function LatestNew() {
               <img loading='lazy' src='./image/news/new_3.jpg' />
               <div className='flex flex-col items-center'>
                 <h3 className='font-bold text-center text-xl mb-4'>
-                  Doctor Strange assembles with the Avengers
+                  Doctor Strange hội ngộ với Avengers
                 </h3>
                 <button className='px-3 py-1 rounded-2xl bg-orange-400 hover:bg-orange-600 text-white text-sm duration-300'>
-                  Read more
+                  Xem thêm
                 </button>
               </div>
             </div>
@@ -68,7 +69,7 @@ export default function LatestNew() {
                   The Beatles: Eight Days a Week – The Touring
                 </h3>
                 <button className='px-3 py-1 rounded-2xl bg-orange-400 hover:bg-orange-600 text-white text-sm duration-300'>
-                  Read more
+                  Xem thêm
                 </button>
               </div>
             </div>
@@ -76,10 +77,10 @@ export default function LatestNew() {
               <img loading='lazy' src='./image/news/new_4.jpg' />
               <div className='flex flex-col items-center'>
                 <h3 className='font-bold text-center text-xl mb-4'>
-                  5 movies to watch this week (29 Sep 2016)
+                  5 bộ phim đáng xem tuần này
                 </h3>
                 <button className='px-3 py-1 rounded-2xl bg-orange-400 hover:bg-orange-600 text-white text-sm duration-300'>
-                  Read more
+                  Xem thêm
                 </button>
               </div>
             </div>

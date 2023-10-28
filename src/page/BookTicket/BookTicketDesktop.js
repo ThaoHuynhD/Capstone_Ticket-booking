@@ -51,8 +51,8 @@ export default function BookTicketDesktop() {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
-          "Succeed!",
-          "Check ticket-booking history in your profile.",
+          "Bạn đã thanh toán thành công!",
+          "Vui lòng kiểm tra lịch sử đặt vé.",
           "success",
         );
         setTimeout(() => {
@@ -66,7 +66,7 @@ export default function BookTicketDesktop() {
             });
         }, 1500);
       } else if (result.isDenied) {
-        Swal.fire("Do you want to buy more tickets ?", "", "info");
+        Swal.fire("Bạn có muốn mua thêm vé không ?", "", "info");
       }
     });
   };
@@ -162,25 +162,25 @@ export default function BookTicketDesktop() {
                 <div className='w-10 h-10 border border-black rounded leading-10 text-center'>
                   <i className='fa-solid fa-x'></i>
                 </div>
-                <p>Ordered</p>
+                <p>Ghế đã được mua</p>
               </div>
               <div className='flex flex-col items-center'>
                 <div className='w-10 h-10 bg-orange-400 rounded'></div>
-                <p>Vip</p>
+                <p>Ghế Vip</p>
               </div>
               <div className='flex flex-col items-center'>
                 <div className='w-10 h-10 bg-slate-200 rounded '></div>
-                <p>Normal</p>
+                <p>Ghế thường</p>
               </div>
               <div className='flex flex-col items-center'>
                 <div className='w-10 h-10 gheDangDat rounded '></div>
-                <p>Select</p>
+                <p>Ghế đang chọn</p>
               </div>
               <div className='flex flex-col items-center'>
                 <div className='w-10 h-10 gheDaDuocDat rounded leading-10 text-center'>
                   <i className='fa-regular fa-user'></i>
                 </div>
-                <p>Your Select</p>
+                <p>Ghế bạn đã mua</p>
               </div>
             </div>
           </div>
@@ -213,16 +213,16 @@ export default function BookTicketDesktop() {
               <span>{localService.get()?.email}</span>
             </div>
             <div className='billTitle flex justify-between'>
-              <p>Phone Number</p>
+              <p>Số điện thoại</p>
               <span>{localService.get()?.soDT}</span>
             </div>
 
             <div className='billTitle flex justify-between'>
-              <p>Seat</p>
+              <p>Ghế</p>
               <span>{renderTenGhe()}</span>
             </div>
             <div className='px-4 py-6'>
-              <p className='font-semibold '>Payments</p>
+              <p className='font-semibold mb-4'>Chọn phương thức thanh toán</p>
               <Radio.Group
                 disabled={isDisabled}
                 onChange={onChange}
@@ -232,7 +232,9 @@ export default function BookTicketDesktop() {
                   <Radio value={1}>
                     <div className='flex items-center justify-between px-4'>
                       <img src='../image/icon-ZaloPay.webp' width={40} />
-                      <span className='text-lg ml-4'>Pay via ZaloPay</span>
+                      <span className='text-lg ml-4'>
+                        Thanh toán qua ZaloPay
+                      </span>
                     </div>
                   </Radio>
                   <Radio value={2}>
@@ -242,13 +244,13 @@ export default function BookTicketDesktop() {
                         src='../image/icon_momo.png'
                         width={40}
                       />
-                      <span className='text-lg ml-4'>Pay via MoMo</span>
+                      <span className='text-lg ml-4'>Thanh toán qua MoMo</span>
                     </div>
                   </Radio>
                   <Radio value={3}>
                     <div className='flex items-center justify-between px-4'>
                       <img src='../image/icon_atm.png' width={40} />
-                      <span className='text-lg ml-4'>Pay via ATM</span>
+                      <span className='text-lg ml-4'>Thanh toán qua ATM</span>
                     </div>
                   </Radio>
                 </Space>
@@ -261,12 +263,12 @@ export default function BookTicketDesktop() {
               }}
               className={`w-full py-3 mt-3 ${classBtnBuyTicket} font-bold text-white rounded  duration-300`}
             >
-              Buy Ticket
+              Đặt vé
             </button>
 
             <NavLink to={"/profile"}>
               <p className='text-center text-blue-400 hover:text-blue-700'>
-                <i>Check booking history</i>
+                <i>Lịch sử đặt vé</i>
               </p>
             </NavLink>
           </div>

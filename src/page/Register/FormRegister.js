@@ -44,9 +44,9 @@ export default function FormRegister() {
         message.success("Đăng ký thành công");
         setTimeout(() => {
           navigate("/login");
-        }, 1500);
+        }, 1000);
       } catch (err) {
-        console.log(err);
+        message.error(err.response.data.content);
       }
     };
     fetchDataUserRegister();
@@ -66,31 +66,31 @@ export default function FormRegister() {
       scrollToFirstError
     >
       <Form.Item
-        label='Username'
+        label='Tài Khoản'
         name='taiKhoan'
         rules={[
           {
             required: true,
-            message: "Please input your username!",
+            message: "Vui lòng nhập tài khoản !",
           },
         ]}
       >
-        <Input placeholder='Username' />
+        <Input placeholder='Tài khoản' />
       </Form.Item>
 
       <Form.Item
         name='matKhau'
-        label='Password'
+        label='Mật khẩu'
         rules={[
           {
             required: true,
-            message: "Please input your password!",
+            message: "Vui lòng nhập mật khẩu!",
           },
         ]}
         hasFeedback
       >
         <Input.Password
-          placeholder='Password'
+          placeholder='Mật khẩu'
           style={{
             borderRadius: 0,
             borderColor: "#6B7280",
@@ -101,13 +101,13 @@ export default function FormRegister() {
 
       <Form.Item
         name='confirm'
-        label='Confirm Password'
+        label='Nhập lại mật khẩu'
         dependencies={["matKhau"]}
         hasFeedback
         rules={[
           {
             required: true,
-            message: "Please confirm your password!",
+            message: "Vui lòng nhập lại mật khẩu!",
           },
           ({ getFieldValue }) => ({
             validator(_, value) {
@@ -115,14 +115,14 @@ export default function FormRegister() {
                 return Promise.resolve();
               }
               return Promise.reject(
-                new Error("The new password that you entered do not match!"),
+                new Error("Mật khẩu mà bạn nhập không khớp!"),
               );
             },
           }),
         ]}
       >
         <Input.Password
-          placeholder='Confirm Password'
+          placeholder='Nhập lại mật khẩu'
           style={{
             borderRadius: 0,
             borderColor: "#6B7280",
@@ -137,11 +137,11 @@ export default function FormRegister() {
         rules={[
           {
             type: "email",
-            message: "The input is not valid E-mail!",
+            message: "Đây không phải là email!",
           },
           {
             required: true,
-            message: "Please input your E-mail!",
+            message: "Vui lòng nhập vào email!",
           },
         ]}
       >
@@ -150,30 +150,29 @@ export default function FormRegister() {
 
       <Form.Item
         name='hoTen'
-        label='Nickname'
-        tooltip='What do you want others to call you?'
+        label='Họ tên'
         rules={[
           {
             required: true,
-            message: "Please input your nickname!",
+            message: "Vui lòng nhập vào Họ tên!",
             whitespace: true,
           },
         ]}
       >
-        <Input placeholder='Nickname' />
+        <Input placeholder='Họ tên' />
       </Form.Item>
 
       <Form.Item
         name='soDt'
-        label='Phone Number'
+        label='Số điện thoại'
         rules={[
           {
             required: true,
-            message: "Please input your phone number!",
+            message: "Vui lòng nhập vào số điện thoại!",
           },
         ]}
       >
-        <Input placeholder='Phone Number' />
+        <Input placeholder='Số điện thoại' />
       </Form.Item>
 
       <Form.Item className='col-span-2' {...tailFormItemLayout}>
@@ -182,7 +181,7 @@ export default function FormRegister() {
           htmlType='submit'
           className='w-full bg-orange-400 hover:bg-orange-500 duration-300 shadow-md'
         >
-          Submit
+          Đăng ký
         </Button>
       </Form.Item>
     </Form>

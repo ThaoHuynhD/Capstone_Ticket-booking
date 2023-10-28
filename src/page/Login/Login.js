@@ -18,13 +18,13 @@ export default function Login() {
             <UserOutlined />
           </div>
           <h3 className='text-center font-bold my-3 text-xl  md:text-2xl'>
-            SIGN IN
+            Đăng nhập
           </h3>
           <FormInput />
           <div>
             <NavLink to={"/register"}>
               <span className='text-blue-500 hover:text-blue-800 text-[0.7rem] md:text-base'>
-                Have you got an account ? Create account here!
+                Bạn chưa có tài khoản ? Đăng ký ở đây!
               </span>
             </NavLink>
           </div>

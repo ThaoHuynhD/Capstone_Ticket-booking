@@ -63,8 +63,8 @@ export default function BookTicketMobile() {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
-          "Succeed!",
-          "Check ticket-booking history in your profile.",
+          "Bạn đã thanh toán thành công!",
+          "Vui lòng kiểm tra lịch sử đặt vé.",
           "success",
         );
         setTimeout(() => {
@@ -186,25 +186,25 @@ export default function BookTicketMobile() {
             <div className='w-5 h-5 border border-black rounded leading-5 text-center '>
               <i className='fa-solid fa-x'></i>
             </div>
-            <p>Ordered</p>
+            <p>Ghế đã được mua</p>
           </div>
           <div className='flex flex-col items-center text-xs'>
             <div className='w-5 h-5 bg-orange-400 rounded'></div>
-            <p>Vip</p>
+            <p>Ghế Vip</p>
           </div>
           <div className='flex flex-col items-center text-xs'>
             <div className='w-5 h-5 bg-slate-200 rounded '></div>
-            <p>Normal</p>
+            <p>Ghế thường</p>
           </div>
           <div className='flex flex-col items-center text-xs'>
             <div className='w-5 h-5 gheDangDat rounded '></div>
-            <p>Select</p>
+            <p>Ghế đang chọn</p>
           </div>
           <div className='flex flex-col items-center text-xs'>
             <div className='w-5 h-5 gheDaDuocDat rounded leading-5 text-center '>
               <i className='fa-regular fa-user'></i>
             </div>
-            <p>Your Select</p>
+            <p>Ghế bạn đã mua</p>
           </div>
         </div>
         <div className='fixed bottom-0 left-0 w-full '>
@@ -213,7 +213,7 @@ export default function BookTicketMobile() {
             onClick={showDrawer}
             className={`w-full py-4 ${classBtnCountinue} text-white font-bold  duration-300`}
           >
-            Countinue
+            Thanh toán
           </button>
           <Drawer
             title='Booking infomation'
@@ -247,16 +247,18 @@ export default function BookTicketMobile() {
                 <span>{localService.get()?.email}</span>
               </div>
               <div className='billTitle flex justify-between'>
-                <p>Phone Number</p>
+                <p>Số điện thoại</p>
                 <span>{localService.get()?.soDT}</span>
               </div>
 
               <div className='billTitle flex justify-between'>
-                <p>Seat</p>
+                <p>Ghế</p>
                 <span>{renderTenGhe()}</span>
               </div>
               <div className='px-4 py-6'>
-                <p className='font-semibold '>Payments</p>
+                <p className='font-semibold mb-4'>
+                  Chọn phương thức thanh toán
+                </p>
                 <Radio.Group
                   disabled={isDisabled}
                   onChange={onChange}
@@ -267,7 +269,7 @@ export default function BookTicketMobile() {
                       <div className='flex items-center justify-between px-4'>
                         <img src='../image/icon-ZaloPay.webp' width={40} />
                         <span className='text-sm md:text-base lg:text-lg ml-4'>
-                          Pay via ZaloPay
+                          Thanh toán qua ZaloPay
                         </span>
                       </div>
                     </Radio>
@@ -279,7 +281,7 @@ export default function BookTicketMobile() {
                           width={40}
                         />
                         <span className='text-sm md:text-base lg:text-lg ml-4'>
-                          Pay via MoMo
+                          Thanh toán qua MoMo
                         </span>
                       </div>
                     </Radio>
@@ -287,7 +289,7 @@ export default function BookTicketMobile() {
                       <div className='flex items-center justify-between px-4'>
                         <img src='../image/icon_atm.png' width={40} />
                         <span className='text-sm md:text-base lg:text-lg ml-4'>
-                          Pay via ATM
+                          Thanh toán qua ATM
                         </span>
                       </div>
                     </Radio>
@@ -301,12 +303,12 @@ export default function BookTicketMobile() {
                 }}
                 className={`w-full py-3 mt-3 ${classBtnBuyTicket} font-bold text-white rounded  duration-300`}
               >
-                Buy Ticket
+                Đặt vé
               </button>
 
               <NavLink to={"/profile"}>
                 <p className='text-center text-blue-400 hover:text-blue-700'>
-                  <i>Check booking history</i>
+                  <i>Lịch sử đặt vé</i>
                 </p>
               </NavLink>
             </div>

@@ -26,7 +26,7 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <h4>Customer Services</h4>
+            <h4>Dịch vụ</h4>
             <ul className='space-y-4'>
               <li>
                 <a
@@ -55,7 +55,7 @@ export default function Footer() {
             </ul>
           </div>
           <div id='recentPosts'>
-            <h4>Recent Posts</h4>
+            <h4>Bài viết gần đây</h4>
             <div className='mb-4 border-b border-white '>
               <div className='flex mb-5 recentPost__top'>
                 <img
@@ -65,8 +65,8 @@ export default function Footer() {
                 />
                 <div className='recentPost__info'>
                   <h5>
-                    Six book-to-film adaptations to get excited about this
-                    autumn
+                    Sáu cuốn sách được chuyển thể thành phim đáng mong đợi vào
+                    mùa thu này
                   </h5>
                   <span>April 28, 2022</span>
                   <span>/ 0 Comments</span>
@@ -89,12 +89,10 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4>Contact Us</h4>
+            <h4>Liên hệ</h4>
             <div className='flex items-center '>
               <i className='fa-solid fa-location-arrow mr-4'></i>
-              <p className='md:text-sm xl:text-base'>
-                9067 Zurich, Switzerland 87
-              </p>
+              <p className='md:text-sm xl:text-base'>Lorem ipsum dolor sit.</p>
             </div>
             <div className='flex items-center '>
               <i className='fa-regular fa-envelope mr-4'></i>

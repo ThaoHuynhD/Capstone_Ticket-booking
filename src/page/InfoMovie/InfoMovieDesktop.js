@@ -88,7 +88,7 @@ export default function InfoMovieDesktop() {
                   className='w-full py-3 mt-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 duration-300'
                   onClick={onOpenModal}
                 >
-                  Watch Trailer
+                  Trailer
                 </button>
                 <Modal
                   open={open}
@@ -124,7 +124,7 @@ export default function InfoMovieDesktop() {
               </p>
               <p className='text-orange-500 my-5 font-semibold text-xl'>
                 <i className='fa-regular fa-clock mr-3'></i>
-                {moment(infoMovie.ngayKhoiChieu).format("lll")}
+                {moment(infoMovie.ngayKhoiChieu).format("LL")}
               </p>
               <div className='flex items-center space-x-5'>
                 <div className='flex items-center '>
@@ -135,35 +135,35 @@ export default function InfoMovieDesktop() {
                 </div>
                 <div className='px-3 py-1 rounded bg-blue-500 hover:bg-blue-600 duration-300 cursor-pointer'>
                   <i className='fa-brands fa-square-facebook'></i>
-                  <span className='ml-2'>Share</span>
+                  <span className='ml-2'>Chia sẻ</span>
                 </div>
                 <div className='px-3 py-1 rounded border border-white opacity-80 hover:opacity-100 cursor-pointer'>
                   <i className='fa-solid fa-plus'></i>
-                  <span className='ml-2'>Collection</span>
+                  <span className='ml-2'>Bộ sưu tập</span>
                 </div>
               </div>
 
               <div className='mt-4'>
                 <div className='text-white text-base'>
                   <div className='grid grid-cols-3 gap-1 '>
-                    <p className='font-semibold'>Release</p>
+                    <p className='font-semibold'>Khởi chiếu</p>
                     <p className='col-span-2'>
                       {moment(infoMovie.ngayKhoiChieu).format("LL")}
                     </p>
                   </div>
                   <div className='grid grid-cols-3 gap-1  my-3'>
-                    <p className='font-semibold'>Director</p>
+                    <p className='font-semibold'>Đạo diễn</p>
                     <p className='col-span-2'>Adam Wingard</p>
                   </div>
                   <div className='grid grid-cols-3 gap-1  my-3'>
-                    <p className='font-semibold'>Actor</p>
+                    <p className='font-semibold'>Diễn viên</p>
                     <p className='col-span-2'>
                       Kyle Chandler, Rebecca Hall, Eiza González, Millie Bobby
                       Brown
                     </p>
                   </div>
                   <div className='grid grid-cols-3 gap-1  my-3'>
-                    <p className='font-semibold'>Genre</p>
+                    <p className='font-semibold'>Thể loại</p>
                     <p className='col-span-2'>Cartoon, Sci-fi</p>
                   </div>
                   <div className='grid grid-cols-3 gap-1  my-3'>
@@ -171,13 +171,13 @@ export default function InfoMovieDesktop() {
                     <p className='col-span-2'>2D/Digital</p>
                   </div>
                   <div className='grid grid-cols-3 gap-1 '>
-                    <p className='font-semibold'>Language</p>
+                    <p className='font-semibold'>Ngôn ngữ</p>
                     <p className='col-span-2'>English</p>
                   </div>
                 </div>
 
                 <div className='text-white mt-3 text-base'>
-                  <p className='font-semibold mb-3'>Synopsis</p>
+                  <p className='font-semibold mb-3'>Nội dung</p>
                   <p>{infoMovie.moTa}</p>
                 </div>
               </div>
@@ -231,7 +231,7 @@ export default function InfoMovieDesktop() {
                               </div>
                             </div>
 
-                            <div className='grid md:grid-cols-2 md:gap-4 lg:grid-cols-4 lg:gap-4 mt-5'>
+                            <div className='grid md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-4 mt-5'>
                               {tenRap.lichChieuPhim
                                 .slice(0, 10)
                                 .map((gioChieu, index) => {

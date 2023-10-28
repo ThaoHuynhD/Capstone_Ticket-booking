@@ -9,6 +9,7 @@ import BookTicket from "./page/BookTicket/BookTicket";
 import Loading from "./components/Loading";
 import UserInfo from "./page/UserInfo/UserInfo";
 import PageNotFound from "./page/Page_404/PageNotFound";
+import "moment/locale/vi";
 
 function App() {
   return (

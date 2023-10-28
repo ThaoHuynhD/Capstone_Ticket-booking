@@ -165,7 +165,7 @@ export default function SearchBar() {
     >
       <div id='movieName' className='w-[30%]'>
         <Select
-          defaultValue={"Find movies..."}
+          defaultValue={"Tìm phim..."}
           allowClear={true}
           onChange={handleChange}
           bordered={false}
@@ -173,31 +173,31 @@ export default function SearchBar() {
           filterOption={filterOption}
           className='w-full font-bold text-xs sm:text-sm md:text-base text'
         >
-          <Select.Option value={0}>Movie</Select.Option>
+          <Select.Option value={0}>Phim</Select.Option>
           {renderListMovie()}
         </Select>
       </div>
       <div id='cinemaComplex' style={{ width: "25%" }}>
         <Select
-          defaultValue={"Theater complex"}
+          defaultValue={"Cụm rạp"}
           allowClear={true}
           bordered={false}
           onChange={handleChangeLichChieu}
           className='w-full font-bold text-xs sm:text-sm md:text-base'
         >
-          <Select.Option value={0}>Cinema complex</Select.Option>
+          <Select.Option value={0}>Cụm rạp</Select.Option>
           {renderLichChieuPhim()}
         </Select>
       </div>
       <div id='showTimes' style={{ width: "25%" }}>
         <Select
-          defaultValue={"Show time"}
+          defaultValue={"Lịch chiếu"}
           allowClear={true}
           bordered={false}
           onChange={handleChangeNgayChieu}
           className='w-full  text-xs sm:text-sm md:text-base'
         >
-          <Select.Option value={0}>Select session</Select.Option>
+          <Select.Option value={0}>Lịch chiếu</Select.Option>
           {renderNgayChieu()}
         </Select>
       </div>
@@ -208,7 +208,7 @@ export default function SearchBar() {
           className={`ml-3 py-2 font-bold rounded ${classBtnBuy} duration-300 text-xs md:text-base`}
           style={{ width: "80%" }}
         >
-          Find
+          Mua vé
         </button>
       </div>
     </div>

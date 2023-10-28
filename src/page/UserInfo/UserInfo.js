@@ -48,7 +48,8 @@ export default function UserInfo() {
             />
             <div className='flex-grow sm:pl-8'>
               <p>
-                Ngày đặt : {moment(item.ngayDat).format("hh:mm A - DD-MM-YYYY")}
+                Ngày đặt : {moment(item.ngayDat).format("ll")} -{" "}
+                {moment(item.ngayDat).format("LT")}
               </p>
               <h2 className='title-font font-medium text-lg text-orange-500'>
                 Tên Phim: {item.tenPhim}
@@ -82,8 +83,8 @@ export default function UserInfo() {
     updateUserInfo(newValues)
       .then((res) => {
         Swal.fire(
-          "Update succeed!",
-          "You'll need to sign in again!",
+          "Cập nhật thành công!",
+          "Bạn cần phải đăng nhập lại!",
           "success",
         );
       })
@@ -104,10 +105,10 @@ export default function UserInfo() {
         <div className='container px-5 py-24 mx-auto'>
           <div className=' w-full mb-20  p-4 formInfo'>
             <h1 className='text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest'>
-              SETTINGS
+              Thông tin tài khoản
             </h1>
             <p className='lg:w-2/3 leading-relaxed text-base'>
-              Infomation maybe change
+              Thông tin có thể thay đổi
             </p>
             <Form
               layout='vertical'
@@ -120,12 +121,12 @@ export default function UserInfo() {
               className=' md:grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-2 xl:gap-4'
             >
               <Form.Item
-                label='Username'
+                label='Tài khoản'
                 name='taiKhoan'
                 rules={[
                   {
                     required: true,
-                    message: "Please input your username!",
+                    message: "Vui lòng nhập tài khoản!",
                   },
                 ]}
               >
@@ -134,11 +135,11 @@ export default function UserInfo() {
 
               <Form.Item
                 name='matKhau'
-                label='Password'
+                label='Mật khẩu'
                 rules={[
                   {
                     required: true,
-                    message: "Please input your password!",
+                    message: "Vui lòng nhập mật khẩu!",
                   },
                 ]}
               >
@@ -158,11 +159,11 @@ export default function UserInfo() {
                 rules={[
                   {
                     type: "email",
-                    message: "The input is not valid E-mail!",
+                    message: "Đây không phải là email!",
                   },
                   {
                     required: true,
-                    message: "Please input your E-mail!",
+                    message: "Vui lòng nhập vào email!",
                   },
                 ]}
               >
@@ -171,12 +172,12 @@ export default function UserInfo() {
 
               <Form.Item
                 name='hoTen'
-                label='Nickname'
+                label='Họ tên'
                 tooltip='What do you want others to call you?'
                 rules={[
                   {
                     required: true,
-                    message: "Please input your nickname!",
+                    message: "Vui lòng nhập vào Họ tên!",
                     whitespace: true,
                   },
                 ]}
@@ -186,17 +187,17 @@ export default function UserInfo() {
 
               <Form.Item
                 name='soDt'
-                label='Phone Number'
+                label='Số điện thoại'
                 rules={[
                   {
                     required: true,
-                    message: "Please input your phone number!",
+                    message: "Vui lòng nhập vào số điện thoại!",
                   },
                 ]}
               >
                 <Input />
               </Form.Item>
-              <Form.Item name='maLoaiNguoiDung' label='Type'>
+              <Form.Item name='maLoaiNguoiDung' label='Loại'>
                 <Input disabled={true} className=' font-bold' />
               </Form.Item>
 
@@ -206,13 +207,13 @@ export default function UserInfo() {
                   htmlType='submit'
                   className=' bg-orange-300 hover:bg-orange-600 duration-300 flex justify-center items-center'
                 >
-                  Update
+                  Cập nhật
                 </Button>
               </Form.Item>
             </Form>
           </div>
           <h1 className='text-center text-white text-4xl font-bold'>
-            Ticket-booking History
+            Lịch sử đặt vé
           </h1>
           <div className='flex flex-wrap  formInfo'>
             {renderThongTinVeDaDat()}

@@ -129,11 +129,11 @@ export default function InfoMovieMobile() {
           </div>
           <div className='flex items-center px-3 py-1 rounded bg-blue-500 hover:bg-blue-600 duration-300 cursor-pointer'>
             <i className='fa-brands fa-square-facebook'></i>
-            <span className='ml-2'>Share</span>
+            <span className='ml-2'>Chia sẻ</span>
           </div>
           <div className='flex items-center px-3 py-1 rounded border border-white opacity-80 hover:opacity-100 cursor-pointer'>
             <i className='fa-solid fa-plus'></i>
-            <span className='ml-2'>Collection</span>
+            <span className='ml-2'>Bộ sưu tập</span>
           </div>
         </div>
       </div>
@@ -146,7 +146,7 @@ export default function InfoMovieMobile() {
               key: "1",
               label: (
                 <h3 className='text-white hover:scale-125 duration-300 text-2xl font-semibold tracking-wide'>
-                  Showtimes
+                  Lịch chiếu
                 </h3>
               ),
               children: (
@@ -241,31 +241,31 @@ export default function InfoMovieMobile() {
               key: "2",
               label: (
                 <h3 className='text-white hover:scale-125 duration-300 text-2xl font-semibold tracking-wide'>
-                  Infomation
+                  Thông tin
                 </h3>
               ),
               children: (
                 <Fragment>
                   <div className='text-white text-base'>
                     <div className='grid grid-cols-3 gap-1 px-5'>
-                      <p className='font-semibold'>Release</p>
+                      <p className='font-semibold'>Khởi chiếu</p>
                       <p className='col-span-2'>
                         {moment(infoMovie.ngayKhoiChieu).format("LL")}
                       </p>
                     </div>
                     <div className='grid grid-cols-3 gap-1 px-5 my-3'>
-                      <p className='font-semibold'>Director</p>
+                      <p className='font-semibold'>Đạo diễn</p>
                       <p className='col-span-2'>Adam Wingard</p>
                     </div>
                     <div className='grid grid-cols-3 gap-1 px-5 my-3'>
-                      <p className='font-semibold'>Actor</p>
+                      <p className='font-semibold'>Diễn viên</p>
                       <p className='col-span-2'>
                         Kyle Chandler, Rebecca Hall, Eiza González, Millie Bobby
                         Brown
                       </p>
                     </div>
                     <div className='grid grid-cols-3 gap-1 px-5 my-3'>
-                      <p className='font-semibold'>Genre</p>
+                      <p className='font-semibold'>Thể loại</p>
                       <p className='col-span-2'>Cartoon, Sci-fi</p>
                     </div>
                     <div className='grid grid-cols-3 gap-1 px-5 my-3'>
@@ -273,12 +273,12 @@ export default function InfoMovieMobile() {
                       <p className='col-span-2'>2D/Digital</p>
                     </div>
                     <div className='grid grid-cols-3 gap-1 px-5'>
-                      <p className='font-semibold'>Language</p>
+                      <p className='font-semibold'>Ngôn ngữ</p>
                       <p className='col-span-2'>English</p>
                     </div>
                   </div>
                   <div className='text-white p-5 text-base'>
-                    <p className='font-semibold mb-3'>Synopsis</p>
+                    <p className='font-semibold mb-3'>Nội dung</p>
                     <p>{infoMovie.moTa}</p>
                   </div>
                 </Fragment>
@@ -307,16 +307,16 @@ export default function InfoMovieMobile() {
             </div>
 
             <div>
-              <h4>Contact Us</h4>
+              <h4>Liên hệ</h4>
               <div className='flex items-center '>
                 <i className='fa-solid fa-location-arrow mr-4'></i>
                 <p className='md:text-sm xl:text-base'>
-                  9067 Zurich, Switzerland 87
+                  Lorem ipsum dolor sit.
                 </p>
               </div>
               <div className='flex items-center '>
                 <i className='fa-regular fa-envelope mr-4'></i>
-                <p>abc@gmail.com</p>
+                <p>nguyenduylk202@gmail.com</p>
               </div>
               <div className='flex items-center '>
                 <i className='fa-solid fa-phone mr-4'></i>

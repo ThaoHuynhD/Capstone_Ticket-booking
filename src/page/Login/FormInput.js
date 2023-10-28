@@ -15,10 +15,10 @@ export default function FormInput() {
         let res = await dangNhap(values);
         dispatch(setInfo(res.data.content));
         localService.set(res.data.content);
-        navigate("/");
+        message.success("Đăng nhập thành công");
         setTimeout(() => {
-          message.success("Login succeed");
-        }, 2000);
+          navigate("/");
+        }, 1000);
       } catch (err) {
         message.error(err.response.data.content);
       }
@@ -50,12 +50,12 @@ export default function FormInput() {
       autoComplete='off'
     >
       <Form.Item
-        label='Username'
+        label='Tài khoản'
         name='taiKhoan'
         rules={[
           {
             required: true,
-            message: "Please input your username!",
+            message: "Vui lòng nhập vào tài khoản!",
           },
         ]}
       >
@@ -63,12 +63,12 @@ export default function FormInput() {
       </Form.Item>
 
       <Form.Item
-        label='Password'
+        label='Mật khẩu'
         name='matKhau'
         rules={[
           {
             required: true,
-            message: "Please input your password!",
+            message: "Vui lòng nhập vào mật khẩu!",
           },
         ]}
       >
@@ -102,7 +102,7 @@ export default function FormInput() {
           htmlType='submit'
           className='bg-orange-400 hover:bg-orange-500 w-full shadow-md'
         >
-          Submit
+          Đăng nhập
         </Button>
       </Form.Item>
     </Form>

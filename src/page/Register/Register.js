@@ -20,14 +20,14 @@ export default function Register() {
               </div>
             </div>
             <h3 className='text-center font-bold my-3 text-xl  md:text-2xl'>
-              REGISTER
+              Đăng ký
             </h3>
           </div>
           <FormRegister />
           <div className='text-center'>
             <NavLink to={"/login"}>
               <span className='text-blue-500 hover:text-blue-800 text-[0.7rem] md:text-base'>
-                Already have an account? Log in here!
+                Bạn đã có tài khoản ? Đăng nhập ở đây!
               </span>
             </NavLink>
           </div>

@@ -39,15 +39,14 @@ export default function FeaturesMovie() {
               <h3 className='text-center font-bold mt-1 md:mt-2 text-base md:text-lg'>
                 {item.tenPhim}
               </h3>
-              <span>
+              <span className='text-[13px]'>
                 {item.moTa.length > 50
                   ? item.moTa.slice(0, 50) + "..."
                   : item.moTa}
               </span>
               <p className='text-sm md:text-base'>
-                Release: <span>{moment(item.ngayKhoiChieu).format("ll")}</span>
-                <span> - </span>
-                <span>{moment(item.ngayKhoiChieu).format("LT")}</span>
+                Khởi chiếu:{" "}
+                <span>{moment(item.ngayKhoiChieu).format("ll")}</span>
               </p>
               <div></div>
             </div>
@@ -57,11 +56,11 @@ export default function FeaturesMovie() {
                   {item.tenPhim}
                 </h4>
                 <p>
-                  <span>Release: </span>
-                  {moment(item.ngayKhoiChieu).format("lll")}
+                  <span>Khởi chiếu: </span>
+                  {moment(item.ngayKhoiChieu).format("ll")}
                 </p>
                 <p>
-                  <span>Genre: </span> Mystery
+                  <span>Thể loại: </span> Mystery
                 </p>
                 <div className='flex items-center text-white'>
                   <div className='bg-yellow-400 p-1 mr-4 rounded-md text-black font-bold'>
@@ -108,7 +107,7 @@ export default function FeaturesMovie() {
                 <NavLink to={`/detail/${item.maPhim}`}>
                   <button className='opacity-70 hover:opacity-100 duration-300'>
                     <i className='fa-solid fa-exclamation bg-orange-500 h-6 w-6 leading-6 text-white mr-1 rounded-full text-center'></i>
-                    <span>Detail</span>
+                    <span>Chi tiết</span>
                   </button>
                 </NavLink>
               </div>

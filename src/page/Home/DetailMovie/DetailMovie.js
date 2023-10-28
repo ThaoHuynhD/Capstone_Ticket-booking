@@ -66,12 +66,12 @@ export default function DetailMovie() {
                     {item.tenPhim}
                   </h3>
                   <p className='text-sm'>
-                    Release:
-                    <span> {moment(item.ngayKhoiChieu).format("lll")}</span>
+                    Khởi chiếu:
+                    <span> {moment(item.ngayKhoiChieu).format("ll")}</span>
                   </p>
                   <NavLink to={`/detail/${item.maPhim}`}>
                     <button className='mt-3 sm:mt-3 px-4 py-2 border border-white rounded hover:bg-white duration-300 hover:text-orange-500'>
-                      Buy Ticket
+                      Đặt vé
                     </button>
                   </NavLink>
                 </div>

@@ -33,7 +33,7 @@ export default function Header() {
             className='ml-3 hover:text-orange-500 duration-300'
           >
             <i className='fa-solid fa-right-from-bracket mr-2'></i>
-            <span>Log Out</span>
+            <span>Đăng xuất</span>
           </button>
         </>
       );
@@ -47,7 +47,7 @@ export default function Header() {
             }}
           >
             <i className='fa-solid fa-user mr-2'></i>
-            <span>Login</span>
+            <span>Đăng nhập</span>
           </button>
           <button
             className='hover:text-orange-500 duration-300'
@@ -56,7 +56,7 @@ export default function Header() {
             }}
           >
             <i className='fa-solid fa-unlock mr-2'></i>
-            <span>Register</span>
+            <span>Đăng ký</span>
           </button>
         </>
       );
@@ -105,21 +105,19 @@ export default function Header() {
           <label htmlFor='menu-toggle' className='menu-icon'>
             ☰
           </label>
-          <ul className='menu navbar lg:space-x-5'>
+          <ul className='menu navbar lg:space-x-5 uppercase'>
             <li>
-              <a href='#featuresMovie'>NOW SHOWING</a>
+              <a href='#featuresMovie'>Lịch chiếu</a>
+            </li>
+
+            <li>
+              <a href='#cinema__complex'>Cụm rạp</a>
             </li>
             <li>
-              <a href='#showtimes'>NEW RELEASE</a>
+              <a href='#news'>Tin tức</a>
             </li>
             <li>
-              <a href='#cinema__complex'>SHOW TIME</a>
-            </li>
-            <li>
-              <a href='#news'>NEWS</a>
-            </li>
-            <li>
-              <a href='#footer'>CONTACT</a>
+              <a href='#footer'>Liên hệ</a>
             </li>
           </ul>
         </nav>
