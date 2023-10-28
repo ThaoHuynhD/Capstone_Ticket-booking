@@ -18,6 +18,7 @@ export default function FormInput() {
         message.success("Đăng nhập thành công");
         setTimeout(() => {
           navigate("/");
+          window.location.reload();
         }, 1000);
       } catch (err) {
         message.error(err.response.data.content);
