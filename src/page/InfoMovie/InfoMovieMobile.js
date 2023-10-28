@@ -111,7 +111,7 @@ export default function InfoMovieMobile() {
           </Modal>
         </div>
       </div>
-      <div style={{ width: "80%", padding: "0 15px" }}>
+      <div style={{ padding: "0 15px" }}>
         <h3>{moment(infoMovie.ngayKhoiChieu).format("LL")}</h3>
         <div className='flex items-center'>
           <div className='w-8 h-8 leading-8 bg-orange-500 text-white font-bold text-center inline-block mr-4'>
@@ -119,7 +119,7 @@ export default function InfoMovieMobile() {
           </div>
           <span className='text-3xl'>{infoMovie.tenPhim}</span>
         </div>
-        <span>120 Minutes - 2D/Digital</span>
+        <p className='my-4'>120 Minutes - 2D/Digital</p>
         <div className='flex items-center space-x-5'>
           <div className='flex items-center '>
             <div className='bg-yellow-400 p-1 mr-2 rounded-md text-black font-bold'>
@@ -127,11 +127,11 @@ export default function InfoMovieMobile() {
             </div>
             <span className='font-bold'>{infoMovie.danhGia}</span>
           </div>
-          <div className='flex items-center px-3 py-1 rounded bg-blue-500 hover:bg-blue-600 duration-300 cursor-pointer'>
+          <div className='flex items-center  px-3 py-1 rounded bg-blue-500 hover:bg-blue-600 duration-300 cursor-pointer'>
             <i className='fa-brands fa-square-facebook'></i>
-            <span className='ml-2'>Chia sẻ</span>
+            <p className='ml-2'>Chia sẻ</p>
           </div>
-          <div className='flex items-center px-3 py-1 rounded border border-white opacity-80 hover:opacity-100 cursor-pointer'>
+          <div className='flex items-center  px-3 py-1 rounded border border-white opacity-80 hover:opacity-100 cursor-pointer'>
             <i className='fa-solid fa-plus'></i>
             <span className='ml-2'>Bộ sưu tập</span>
           </div>
