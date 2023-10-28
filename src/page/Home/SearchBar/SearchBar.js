@@ -165,7 +165,7 @@ export default function SearchBar() {
     >
       <div id='movieName' className='w-[30%]'>
         <Select
-          defaultValue={"Tìm phim..."}
+          defaultValue={"Find movies..."}
           allowClear={true}
           onChange={handleChange}
           bordered={false}
@@ -179,7 +179,7 @@ export default function SearchBar() {
       </div>
       <div id='cinemaComplex' style={{ width: "25%" }}>
         <Select
-          defaultValue={"Cụm rạp"}
+          defaultValue={"Theater complex"}
           allowClear={true}
           bordered={false}
           onChange={handleChangeLichChieu}
@@ -191,7 +191,7 @@ export default function SearchBar() {
       </div>
       <div id='showTimes' style={{ width: "25%" }}>
         <Select
-          defaultValue={"Ngày chiếu"}
+          defaultValue={"Show time"}
           allowClear={true}
           bordered={false}
           onChange={handleChangeNgayChieu}
@@ -208,7 +208,7 @@ export default function SearchBar() {
           className={`ml-3 py-2 font-bold rounded ${classBtnBuy} duration-300 text-xs md:text-base`}
           style={{ width: "80%" }}
         >
-          Buy
+          Find
         </button>
       </div>
     </div>
