@@ -33,6 +33,7 @@ export default function BookTicketDesktop() {
   //     console.log(err);
   //   }
   // };
+
   let fetchThongTinPhongVe = () => {
     getTicketRoom(param.id)
       .then((res) => {
@@ -69,16 +70,17 @@ export default function BookTicketDesktop() {
           "Vui lòng kiểm tra lịch sử đặt vé.",
           "success",
         );
-        setTimeout(() => {
-          bookTicket(thongTinDatVe)
-            .then((res) => {
+
+        bookTicket(thongTinDatVe)
+          .then((res) => {
+            setTimeout(() => {
               fetchThongTinPhongVe();
               dispatch(clearThongTinDatVe());
-            })
-            .catch((err) => {
-              console.log(err.response.data.content);
-            });
-        }, 1500);
+            }, 1500);
+          })
+          .catch((err) => {
+            console.log(err.response.data.content);
+          });
       } else if (result.isDenied) {
         Swal.fire("Bạn có muốn mua thêm vé không ?", "", "info");
       }
