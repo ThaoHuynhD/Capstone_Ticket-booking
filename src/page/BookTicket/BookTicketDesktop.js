@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { bookTicket, getTicketRoom } from "../../Services/api";
 import "./ticket.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +17,7 @@ import { Radio, Space } from "antd";
 export default function BookTicketDesktop() {
   const param = useParams();
   const [ticketRoom, setTicketRoom] = useState({});
+  let navigate = useNavigate();
   const onChange = (e) => {
     dispatch(handlePayments(e.target.value));
   };
@@ -31,6 +32,10 @@ export default function BookTicketDesktop() {
     } catch (err) {
       console.log(err);
     }
+  };
+  let switchToProfile = () => {
+    navigate("/profile");
+    window.location.reload();
   };
   useEffect(() => {
     fetchThongTinPhongVe();
@@ -266,7 +271,7 @@ export default function BookTicketDesktop() {
               Đặt vé
             </button>
 
-            <NavLink to={"/profile"}>
+            <NavLink onClick={switchToProfile}>
               <p className='text-center text-blue-400 hover:text-blue-700'>
                 <i>Lịch sử đặt vé</i>
               </p>
