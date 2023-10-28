@@ -37,13 +37,22 @@ export default function BookTicketMobile() {
   const onClose = () => {
     setOpen(false);
   };
-  let fetchThongTinPhongVe = async () => {
-    try {
-      let res = await getTicketRoom(param.id);
-      setTicketRoom(res.data.content);
-    } catch (err) {
-      console.log(err);
-    }
+  // let fetchThongTinPhongVe = async () => {
+  //   try {
+  //     let res = await getTicketRoom(param.id);
+  //     setTicketRoom(res.data.content);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+  let fetchThongTinPhongVe = () => {
+    getTicketRoom(param.id)
+      .then((res) => {
+        setTicketRoom(res.data.content);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   let switchToProfile = () => {
     navigate("/profile");
