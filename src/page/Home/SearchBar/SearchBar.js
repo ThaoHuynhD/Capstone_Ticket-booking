@@ -138,7 +138,6 @@ export default function SearchBar() {
   let handleCheckingLogin = () => {
     if (info) {
       navigate(`/ticketroom/${maLichChieu}`);
-      window.location.reload();
     } else {
       Swal.fire({
         title: "Please log in to your account",
