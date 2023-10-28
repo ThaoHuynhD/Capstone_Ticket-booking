@@ -5,11 +5,12 @@ import { getThongTinTaiKhoan, updateUserInfo } from "../../Services/api";
 import moment from "moment/moment";
 
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function UserInfo() {
   const [thongTinUser, setThongTinUser] = useState({});
   const [form] = Form.useForm();
-
+  let navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -82,11 +83,32 @@ export default function UserInfo() {
     };
     updateUserInfo(newValues)
       .then((res) => {
-        Swal.fire(
-          "Cập nhật thành công!",
-          "Bạn cần phải đăng nhập lại!",
-          "success",
-        );
+        // Swal.fire(
+        //   "Cập nhật thành công!",
+        //   "Bạn cần phải đăng nhập lại!",
+        //   "success",
+        // );
+        Swal.fire({
+          title: "Bạn có muốn thay đổi không ?",
+          icon: "info",
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Confirm",
+          showDenyButton: true,
+          denyButtonText: `Cancel`,
+          showCloseButton: true,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              "Thông tin đã được cập nhật!",
+              "Vui lòng đăng nhập lại.",
+              "success",
+            );
+            setTimeout(() => {
+              navigate("/login");
+            }, 1500);
+          }
+        });
       })
       .catch((err) => {
         console.log(err);
