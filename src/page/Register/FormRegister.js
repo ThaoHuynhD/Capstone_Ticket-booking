@@ -168,6 +168,7 @@ export default function FormRegister() {
         rules={[
           {
             required: true,
+            pattern: new RegExp(/^[0-9]+$/),
             message: "Vui lòng nhập vào số điện thoại!",
           },
         ]}
