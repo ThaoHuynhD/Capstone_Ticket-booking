@@ -10,12 +10,14 @@ import Swal from "sweetalert2";
 export default function SearchBar() {
   const [listMovie, setListMovie] = useState([]);
   const [lichChieuPhim, setLichChieuPhim] = useState({});
-  const [maLichChieu, setMaLichChieu] = useState("");
-  const [maCumRap, setMaCumRap] = useState("");
+  const [movieSelected, setMovieSelected] = useState(null);
+  const [maLichChieu, setMaLichChieu] = useState(null);
+  const [maCumRap, setMaCumRap] = useState(null);
   const [disableBtn, setDisableBtn] = useState(true);
   const [classBtnBuy, setClassBtnBuy] = useState(
     "cursor-no-drop bg-zinc-500 text-white",
   );
+
   let navigate = useNavigate();
   const infoNgayChieu = [];
   const { info } = useSelector((state) => state.userReducer);
@@ -64,6 +66,9 @@ export default function SearchBar() {
     });
   };
   let handleChange = (value) => {
+    setMovieSelected(value);
+    setMaCumRap(null);
+    setMaLichChieu(null);
     if (value !== 0) {
       setClassBtnBuy("cursor-no-drop bg-zinc-500 text-white");
       setDisableBtn(true);
@@ -101,6 +106,7 @@ export default function SearchBar() {
   };
   let handleChangeLichChieu = (value) => {
     setMaCumRap(value);
+    setMaLichChieu(null);
   };
   let renderNgayChieu = () => {
     return infoNgayChieu?.map((item, index) => {
@@ -126,8 +132,8 @@ export default function SearchBar() {
   };
 
   let handleChangeNgayChieu = (value) => {
+    setMaLichChieu(value);
     if (value != 0) {
-      setMaLichChieu(value);
       setClassBtnBuy("bg-orange-500 hover:bg-orange-600 cursor-pointer");
       setDisableBtn(false);
     } else {
@@ -179,10 +185,14 @@ export default function SearchBar() {
       </div>
       <div id='cinemaComplex' style={{ width: "25%" }}>
         <Select
-          defaultValue={"Cụm rạp"}
+          disabled={movieSelected === null}
           allowClear={true}
           bordered={false}
           onChange={handleChangeLichChieu}
+          value={{
+            label: maCumRap === null ? "Chọn rạp phim" : maCumRap.tenCumRap,
+            value: maCumRap,
+          }}
           className='w-full font-bold text-xs sm:text-sm md:text-base'
         >
           <Select.Option value={0}>Cụm rạp</Select.Option>
@@ -191,9 +201,16 @@ export default function SearchBar() {
       </div>
       <div id='showTimes' style={{ width: "25%" }}>
         <Select
-          defaultValue={"Lịch chiếu"}
           allowClear={true}
           bordered={false}
+          disabled={maCumRap === null}
+          value={{
+            label:
+              maLichChieu === null
+                ? "Chọn suất chiếu"
+                : maLichChieu.ngayChieuGioChieu,
+            value: maLichChieu,
+          }}
           onChange={handleChangeNgayChieu}
           className='w-full  text-xs sm:text-sm md:text-base'
         >
