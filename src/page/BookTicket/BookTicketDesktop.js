@@ -161,9 +161,9 @@ export default function BookTicketDesktop() {
         </div>
       </div>
       <div id='bookTicket'>
-        <div className='grid grid-cols-3 gap-8 hangGhe'>
-          <div className='col-span-2 container '>
-            <div>
+        <div className='grid grid-cols-3 gap-8 hangGhe '>
+          <div className='col-span-2 container flex flex-col items-center'>
+            <div className='w-full'>
               <div
                 className='bg-black '
                 style={{ width: "100%", height: 15 }}
