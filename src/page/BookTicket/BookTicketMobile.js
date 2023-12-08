@@ -3,11 +3,7 @@ import { NavLink, useParams, useNavigate } from "react-router-dom";
 import { bookTicket, getTicketRoom } from "../../Services/api";
 import "./ticket.scss";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addTicket,
-  clearThongTinDatVe,
-  handlePayments,
-} from "../../redux/reducer/bookingReducer";
+import { addTicket, clearThongTinDatVe, handlePayments } from "../../redux/reducer/bookingReducer";
 import { localService } from "../../Services/localService";
 import { ThongTinDatVe } from "../../model/ThongTinDatVe";
 
@@ -76,11 +72,7 @@ export default function BookTicketMobile() {
       showCloseButton: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          "Bạn đã thanh toán thành công!",
-          "Vui lòng kiểm tra lịch sử đặt vé.",
-          "success",
-        );
+        Swal.fire("Bạn đã thanh toán thành công!", "Vui lòng kiểm tra lịch sử đặt vé.", "success");
         setTimeout(() => {
           bookTicket(thongTinDatVe)
             .then((res) => {
@@ -109,7 +101,7 @@ export default function BookTicketMobile() {
       if (localService.get()?.taiKhoan === item.taiKhoanNguoiDat) {
         classGheDaDuocDat = "gheDaDuocDat";
       }
-      if (indexGheDangChon != -1) {
+      if (indexGheDangChon !== -1) {
         cssGheDangDat = "gheDangDat";
       }
       return (
@@ -119,10 +111,9 @@ export default function BookTicketMobile() {
               dispatch(addTicket(item));
             }}
             disabled={item.daDat}
-            className={`ghe ${classGheVip} ${classGheDaDat} ${cssGheDangDat} ${classGheDaDuocDat}`}
-          >
+            className={`ghe ${classGheVip} ${classGheDaDat} ${cssGheDangDat} ${classGheDaDuocDat}`}>
             {item.daDat ? (
-              classGheDaDuocDat != "" ? (
+              classGheDaDuocDat !== "" ? (
                 <i className='fa-regular fa-user'></i>
               ) : (
                 <i className='fa-solid fa-x'></i>
@@ -149,8 +140,7 @@ export default function BookTicketMobile() {
           marginBottom: "40px",
           position: "relative",
           minHeight: "210px",
-        }}
-      >
+        }}>
         <div
           style={{
             background: `rgba(0,0,0,0.6)`,
@@ -159,8 +149,7 @@ export default function BookTicketMobile() {
             left: 0,
             width: "100%",
             height: "100%",
-          }}
-        >
+          }}>
           <div className='text-center '>
             <div className='container'>
               <h1 className='font-semibold py-20 inline-block text-4xl text-white'>
@@ -174,14 +163,10 @@ export default function BookTicketMobile() {
         <div
           id='danhSachGhe'
           className='grid grid-cols-1 hangGhe'
-          style={{ overflow: "auto hidden" }}
-        >
+          style={{ overflow: "auto hidden" }}>
           <div style={{ minWidth: "600px" }}>
             <div>
-              <div
-                className='bg-black '
-                style={{ width: "100%", height: 15 }}
-              ></div>
+              <div className='bg-black ' style={{ width: "100%", height: 15 }}></div>
               <div className='trapezoid text-center mb-4'>
                 <h3 className=' text-black'>Screen</h3>
               </div>
@@ -189,8 +174,7 @@ export default function BookTicketMobile() {
 
             <div
               className='listBtnDatGhe ml-3'
-              style={{ minWidth: "600px", paddingBottom: "20px" }}
-            >
+              style={{ minWidth: "600px", paddingBottom: "20px" }}>
               {renderSeats()}
             </div>
           </div>
@@ -225,16 +209,10 @@ export default function BookTicketMobile() {
           <button
             disabled={isStatusBtnCountinue}
             onClick={showDrawer}
-            className={`w-full py-4 ${classBtnCountinue} text-white font-bold  duration-300`}
-          >
+            className={`w-full py-4 ${classBtnCountinue} text-white font-bold  duration-300`}>
             Thanh toán
           </button>
-          <Drawer
-            title='Thông tin thanh toán'
-            placement='right'
-            onClose={onClose}
-            open={open}
-          >
+          <Drawer title='Thông tin thanh toán' placement='right' onClose={onClose} open={open}>
             <div id='info__ticket'>
               <h3 className='text-center p-10 text-3xl text-orange-400 font-bold'>
                 {danhSachGheDangDat
@@ -270,18 +248,12 @@ export default function BookTicketMobile() {
                 <span>{renderTenGhe()}</span>
               </div>
               <div className='px-4 py-6'>
-                <p className='font-semibold mb-4'>
-                  Chọn phương thức thanh toán
-                </p>
-                <Radio.Group
-                  disabled={isDisabled}
-                  onChange={onChange}
-                  value={radioValue}
-                >
+                <p className='font-semibold mb-4'>Chọn phương thức thanh toán</p>
+                <Radio.Group disabled={isDisabled} onChange={onChange} value={radioValue}>
                   <Space direction='vertical'>
                     <Radio value={1}>
                       <div className='flex items-center justify-between px-4'>
-                        <img src='../image/icon-ZaloPay.webp' width={40} />
+                        <img src='../image/icon-ZaloPay.webp' width={40} alt='ZaloPay' />
                         <span className='text-sm md:text-base lg:text-lg ml-4'>
                           Thanh toán qua ZaloPay
                         </span>
@@ -293,6 +265,7 @@ export default function BookTicketMobile() {
                           className='rounded-xl'
                           src='../image/icon_momo.png'
                           width={40}
+                          alt='momo'
                         />
                         <span className='text-sm md:text-base lg:text-lg ml-4'>
                           Thanh toán qua MoMo
@@ -301,7 +274,7 @@ export default function BookTicketMobile() {
                     </Radio>
                     <Radio value={3}>
                       <div className='flex items-center justify-between px-4'>
-                        <img src='../image/icon_atm.png' width={40} />
+                        <img src='../image/icon_atm.png' width={40} alt='icon_atm' />
                         <span className='text-sm md:text-base lg:text-lg ml-4'>
                           Thanh toán qua ATM
                         </span>
@@ -315,8 +288,7 @@ export default function BookTicketMobile() {
                 onClick={() => {
                   handleBookTicket();
                 }}
-                className={`w-full py-3 mt-3 ${classBtnBuyTicket} font-bold text-white rounded  duration-300`}
-              >
+                className={`w-full py-3 mt-3 ${classBtnBuyTicket} font-bold text-white rounded  duration-300`}>
                 Đặt vé
               </button>
 

@@ -9,46 +9,31 @@ export default function Footer() {
         style={{
           background: `url(../image/footer/footer_bg.png) center / cover no-repeat`,
           height: "100%",
-        }}
-      >
+        }}>
         <div className='container grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-7 '>
           <div>
-            <img
-              loading='lazy'
-              src='../image/logo_movie.png'
-              className='mb-4 md:mt-8'
-            />
+            <img loading='lazy' src='../image/logo_movie.png' className='mb-4 md:mt-8' alt='...' />
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
             </p>
           </div>
           <div>
             <h4>Dịch vụ</h4>
             <ul className='space-y-4'>
               <li>
-                <a
-                  href='#header'
-                  className='hover:text-orange-500 duration-300'
-                >
+                <a href='#header' className='hover:text-orange-500 duration-300'>
                   Home
                 </a>
               </li>
               <li>
-                <NavLink
-                  to={"*"}
-                  className='hover:text-orange-500 duration-300'
-                >
+                <NavLink to={"*"} className='hover:text-orange-500 duration-300'>
                   Coming soon
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to={"*"}
-                  className='hover:text-orange-500 duration-300'
-                >
+                <NavLink to={"*"} className='hover:text-orange-500 duration-300'>
                   Top rated
                 </NavLink>
               </li>
@@ -58,16 +43,9 @@ export default function Footer() {
             <h4>Bài viết gần đây</h4>
             <div className='mb-4 border-b border-white '>
               <div className='flex mb-5 recentPost__top'>
-                <img
-                  loading='lazy'
-                  src='../image/footer/footIMG_1.jpg'
-                  width={100}
-                />
+                <img loading='lazy' src='../image/footer/footIMG_1.jpg' width={100} alt='...' />
                 <div className='recentPost__info'>
-                  <h5>
-                    Sáu cuốn sách được chuyển thể thành phim đáng mong đợi vào
-                    mùa thu này
-                  </h5>
+                  <h5>Sáu cuốn sách được chuyển thể thành phim đáng mong đợi vào mùa thu này</h5>
                   <span>April 28, 2022</span>
                   <span>/ 0 Comments</span>
                 </div>
@@ -75,11 +53,7 @@ export default function Footer() {
             </div>
             <div className='border-b border-white recentPost__bot'>
               <div className='flex mb-5 recentPost__top'>
-                <img
-                  loading='lazy'
-                  src='../image/footer/footIMG_2.jpg'
-                  width={100}
-                />
+                <img loading='lazy' src='../image/footer/footIMG_2.jpg' width={100} alt='...' />
                 <div className='recentPost__info'>
                   <h5>The Beatles: Eight Days a Week - The Touring</h5>
                   <span>April 28, 2022</span>
@@ -106,10 +80,7 @@ export default function Footer() {
         </div>
       </div>
       <div className='footer__bottom bg-black py-5'>
-        <div
-          className=' container  flex justify-between'
-          style={{ color: "#666666" }}
-        >
+        <div className=' container  flex justify-between' style={{ color: "#666666" }}>
           <div>©copyright 2016 Movie</div>
           <div className='space-x-4 cursor-pointer'>
             <NavLink to={"https://www.facebook.com/"}>

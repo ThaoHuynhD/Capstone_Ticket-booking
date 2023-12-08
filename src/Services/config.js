@@ -1,10 +1,7 @@
 import axios from "axios";
 import { localService } from "./localService";
 import { store } from "../redux/store";
-import {
-  handleLoadingOff,
-  handleLoadingOn,
-} from "../redux/reducer/spinnerSlice";
+import { handleLoadingOff, handleLoadingOn } from "../redux/reducer/spinnerSlice";
 
 export const BASE_URL = "https://movienew.cybersoft.edu.vn/api/";
 
@@ -29,11 +26,9 @@ https.interceptors.request.use(
   function (config) {
     store.dispatch(handleLoadingOn());
     // console.log("api đi");
-    // Do something before request is sent
     return config;
   },
   function (error) {
-    // Do something with request error
     return Promise.reject(error);
   },
 );
@@ -42,17 +37,11 @@ https.interceptors.request.use(
 https.interceptors.response.use(
   function (response) {
     store.dispatch(handleLoadingOff());
-
     // console.log("api về");
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
     return response;
   },
   function (error) {
     store.dispatch(handleLoadingOff());
-
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // Do something with response error
     return Promise.reject(error);
   },
 );

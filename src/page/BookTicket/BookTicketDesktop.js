@@ -3,11 +3,7 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { bookTicket, getTicketRoom } from "../../Services/api";
 import "./ticket.scss";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addTicket,
-  clearThongTinDatVe,
-  handlePayments,
-} from "../../redux/reducer/bookingReducer";
+import { addTicket, clearThongTinDatVe, handlePayments } from "../../redux/reducer/bookingReducer";
 import { localService } from "../../Services/localService";
 import { ThongTinDatVe } from "../../model/ThongTinDatVe";
 
@@ -22,8 +18,9 @@ export default function BookTicketDesktop() {
     dispatch(handlePayments(e.target.value));
   };
   let dispatch = useDispatch();
-  let { danhSachGheDangDat, isDisabled, classBtnBuyTicket, radioValue } =
-    useSelector((state) => state.bookingReducer);
+  let { danhSachGheDangDat, isDisabled, classBtnBuyTicket, radioValue } = useSelector(
+    (state) => state.bookingReducer,
+  );
 
   // let fetchThongTinPhongVe = async () => {
   //   try {
@@ -65,11 +62,7 @@ export default function BookTicketDesktop() {
       showCloseButton: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          "Bạn đã thanh toán thành công!",
-          "Vui lòng kiểm tra lịch sử đặt vé.",
-          "success",
-        );
+        Swal.fire("Bạn đã thanh toán thành công!", "Vui lòng kiểm tra lịch sử đặt vé.", "success");
 
         bookTicket(thongTinDatVe)
           .then((res) => {
@@ -99,7 +92,7 @@ export default function BookTicketDesktop() {
       if (localService.get()?.taiKhoan === item.taiKhoanNguoiDat) {
         classGheDaDuocDat = "gheDaDuocDat";
       }
-      if (indexGheDangChon != -1) {
+      if (indexGheDangChon !== -1) {
         cssGheDangDat = "gheDangDat";
       }
       return (
@@ -109,10 +102,9 @@ export default function BookTicketDesktop() {
               dispatch(addTicket(item));
             }}
             disabled={item.daDat}
-            className={`ghe ${classGheVip} ${classGheDaDat} ${cssGheDangDat} ${classGheDaDuocDat}`}
-          >
+            className={`ghe ${classGheVip} ${classGheDaDat} ${cssGheDangDat} ${classGheDaDuocDat}`}>
             {item.daDat ? (
-              classGheDaDuocDat != "" ? (
+              classGheDaDuocDat !== "" ? (
                 <i className='fa-regular fa-user'></i>
               ) : (
                 <i className='fa-solid fa-x'></i>
@@ -139,8 +131,7 @@ export default function BookTicketDesktop() {
           marginBottom: "40px",
           minHeight: "210px",
           position: "relative",
-        }}
-      >
+        }}>
         <div
           style={{
             background: `rgba(0,0,0,0.6)`,
@@ -149,8 +140,7 @@ export default function BookTicketDesktop() {
             left: 0,
             width: "100%",
             height: "100%",
-          }}
-        >
+          }}>
           <div className='text-center '>
             <div className='container'>
               <h1 className='font-semibold py-20 inline-block text-4xl text-white'>
@@ -164,10 +154,7 @@ export default function BookTicketDesktop() {
         <div className='grid grid-cols-3 gap-8 hangGhe '>
           <div className='col-span-2 container flex flex-col items-center'>
             <div className='w-full'>
-              <div
-                className='bg-black '
-                style={{ width: "100%", height: 15 }}
-              ></div>
+              <div className='bg-black ' style={{ width: "100%", height: 15 }}></div>
               <div className='trapezoid text-center mb-4'>
                 <h3 className=' text-black'>Screen</h3>
               </div>
@@ -200,10 +187,7 @@ export default function BookTicketDesktop() {
               </div>
             </div>
           </div>
-          <div
-            id='info__ticket'
-            className='border-2 border-gray-400 p-4 shadow-lg  mr-5'
-          >
+          <div id='info__ticket' className='border-2 border-gray-400 p-4 shadow-lg  mr-5'>
             <h3 className='text-center p-10 text-3xl text-orange-400 font-bold'>
               {danhSachGheDangDat
                 .reduce((tongTien, giaVe) => {
@@ -239,18 +223,12 @@ export default function BookTicketDesktop() {
             </div>
             <div className='px-4 py-6'>
               <p className='font-semibold mb-4'>Chọn phương thức thanh toán</p>
-              <Radio.Group
-                disabled={isDisabled}
-                onChange={onChange}
-                value={radioValue}
-              >
+              <Radio.Group disabled={isDisabled} onChange={onChange} value={radioValue}>
                 <Space direction='vertical'>
                   <Radio value={1}>
                     <div className='flex items-center justify-between px-4'>
-                      <img src='../image/icon-ZaloPay.webp' width={40} />
-                      <span className='text-lg ml-4'>
-                        Thanh toán qua ZaloPay
-                      </span>
+                      <img src='../image/icon-ZaloPay.webp' width={40} alt='ZaloPay' />
+                      <span className='text-lg ml-4'>Thanh toán qua ZaloPay</span>
                     </div>
                   </Radio>
                   <Radio value={2}>
@@ -259,13 +237,14 @@ export default function BookTicketDesktop() {
                         className='rounded-xl'
                         src='../image/icon_momo.png'
                         width={40}
+                        alt='momo'
                       />
                       <span className='text-lg ml-4'>Thanh toán qua MoMo</span>
                     </div>
                   </Radio>
                   <Radio value={3}>
                     <div className='flex items-center justify-between px-4'>
-                      <img src='../image/icon_atm.png' width={40} />
+                      <img src='../image/icon_atm.png' width={40} alt='icon_atm' />
                       <span className='text-lg ml-4'>Thanh toán qua ATM</span>
                     </div>
                   </Radio>
@@ -277,8 +256,7 @@ export default function BookTicketDesktop() {
               onClick={() => {
                 handleBookTicket();
               }}
-              className={`w-full py-3 mt-3 ${classBtnBuyTicket} font-bold text-white rounded  duration-300`}
-            >
+              className={`w-full py-3 mt-3 ${classBtnBuyTicket} font-bold text-white rounded  duration-300`}>
               Đặt vé
             </button>
 

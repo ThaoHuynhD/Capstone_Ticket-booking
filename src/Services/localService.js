@@ -6,7 +6,7 @@ export let localService = {
     return JSON.parse(localStorage.getItem("USER"));
   },
   remove: () => {
-    localStorage.clear();
+    localStorage.removeItem("USER");
     window.location.reload();
   },
 };

@@ -27,6 +27,7 @@ export default function CarouselBanner() {
             loading='lazy'
             src='./image/carousel/carousel_2.jpg'
             className=' w-full aspect-auto h-64 sm:h-80 md:h-600 '
+            alt='...'
           />
         </div>
         {banner.slice(0, 2).map((item, index) => {
@@ -36,6 +37,7 @@ export default function CarouselBanner() {
                 loading='lazy'
                 src={item.hinhAnh}
                 className=' w-full md:aspect-video aspect-auto h-64 sm:h-80 md:h-600 '
+                alt='...'
               />
             </div>
           );
@@ -45,6 +47,7 @@ export default function CarouselBanner() {
             loading='lazy'
             src='./image/carousel/carousel_1.jpg'
             className=' w-full  aspect-auto h-64 sm:h-80 md:h-600 '
+            alt='...'
           />
         </div>
       </Carousel>
@@ -53,16 +56,14 @@ export default function CarouselBanner() {
           onClick={() => {
             ref.current.prev();
           }}
-          className='absolute left-[20px] top-[50%]'
-        >
+          className='absolute left-[20px] top-[50%]'>
           <i className='fa-solid fa-chevron-left text-zinc-400 text-lg sm:text-xl md:text-2xl lg:text-4xl hover:text-orange-500 duration-500'></i>
         </button>
         <button
           onClick={() => {
             ref.current.next();
           }}
-          className='absolute right-[20px] top-[50%]'
-        >
+          className='absolute right-[20px] top-[50%]'>
           <i className='fa-solid fa-chevron-right text-zinc-400 text-lg sm:text-xl md:text-2xl lg:text-4xl hover:text-orange-500 duration-500'></i>
         </button>
       </div>

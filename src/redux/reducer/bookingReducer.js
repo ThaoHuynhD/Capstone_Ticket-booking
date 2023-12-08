@@ -18,10 +18,10 @@ const bookingReducer = createSlice({
         return item.maGhe === action.payload.maGhe;
       });
 
-      if (index != -1) {
+      if (index !== -1) {
         //Nếu tìm thấy ghế được chọn trong mảng thì click vào là xoá đi
         state.danhSachGheDangDat.splice(index, 1);
-        if (state.danhSachGheDangDat.length == 0) {
+        if (state.danhSachGheDangDat.length === 0) {
           state.radioValue = 0;
           state.isDisabled = true;
           state.classBtnBuyTicket = "bg-zinc-500 cursor-no-drop";
@@ -33,7 +33,7 @@ const bookingReducer = createSlice({
         state.danhSachGheDangDat.sort((a, b) => {
           return parseFloat(a.tenGhe - b.tenGhe);
         });
-        if (state.danhSachGheDangDat.length != 0) {
+        if (state.danhSachGheDangDat.length !== 0) {
           state.isDisabled = false;
           state.isStatusBtnCountinue = false;
           state.classBtnCountinue = "bg-orange-500 hover:bg-orange-600";
@@ -49,7 +49,7 @@ const bookingReducer = createSlice({
     },
     handlePayments: (state, action) => {
       state.radioValue = action.payload;
-      if (state.radioValue == 0) {
+      if (state.radioValue === 0) {
         state.isDisabled = true;
         state.classBtnBuyTicket = "bg-zinc-500 cursor-no-drop";
       } else {

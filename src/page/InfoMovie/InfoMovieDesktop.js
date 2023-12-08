@@ -10,10 +10,7 @@ import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import ReactPlayer from "react-player";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  handleLoadingOff,
-  handleLoadingOn,
-} from "../../redux/reducer/spinnerSlice";
+import { handleLoadingOff, handleLoadingOn } from "../../redux/reducer/spinnerSlice";
 export default function InfoMovieDesktop() {
   const param = useParams();
   const [infoMovie, setInfoMovie] = useState({});
@@ -42,7 +39,7 @@ export default function InfoMovieDesktop() {
       }
     };
     fetchDataInfoMovie();
-  }, []);
+  }, [dispatch, param.id]);
   useEffect(() => {
     let fetchDataInfoShowtimes = async () => {
       try {
@@ -53,27 +50,22 @@ export default function InfoMovieDesktop() {
       }
     };
     fetchDataInfoShowtimes();
-  }, []);
+  }, [param.id]);
 
   return (
     <div>
       <div style={{ background: `rgb(10, 32, 41)` }}>
-        <div
-          className='md:h-viewH40 lg:h-viewH80'
-          style={{ width: "100%", position: "relative" }}
-        >
+        <div className='md:h-viewH40 lg:h-viewH80' style={{ width: "100%", position: "relative" }}>
           <div
             className='absolute top-0 left-0 right-0 bottom-0 '
             style={{
               background: `url(${infoMovie.hinhAnh}) top center/cover no-repeat`,
-            }}
-          ></div>
+            }}></div>
           <div
             className='absolute top-0 left-0 right-0 bottom-0'
             style={{
               background: `linear-gradient(to top, #06121E, transparent 100%)`,
-            }}
-          ></div>
+            }}></div>
         </div>
         <div style={{ background: "#081418" }} className='pt-80 pb-40'>
           <div className='grid grid-cols-4 gap-10 ' id='infoMovieDesktop'>
@@ -83,12 +75,12 @@ export default function InfoMovieDesktop() {
                 src={infoMovie.hinhAnh}
                 style={{ width: "100%" }}
                 className='rounded-md hover:animate-pulse duration-500'
+                alt={infoMovie.hinhAnh}
               />
               <div>
                 <button
                   className='w-full py-3 mt-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 duration-300'
-                  onClick={onOpenModal}
-                >
+                  onClick={onOpenModal}>
                   Trailer
                 </button>
                 <Modal
@@ -108,8 +100,7 @@ export default function InfoMovieDesktop() {
                   }}
                   onClose={onCloseModal}
                   closeIcon={<i className='fa-solid fa-x text-white'></i>}
-                  center
-                >
+                  center>
                   <ReactPlayer
                     controls={true}
                     url={infoMovie.trailer}
@@ -120,18 +111,14 @@ export default function InfoMovieDesktop() {
               </div>
             </div>
             <div className='col-span-2'>
-              <p className='text-4xl font-bold text-white'>
-                {infoMovie.tenPhim}
-              </p>
+              <p className='text-4xl font-bold text-white'>{infoMovie.tenPhim}</p>
               <p className='text-orange-500 my-5 font-semibold text-xl'>
                 <i className='fa-regular fa-clock mr-3'></i>
                 {moment(infoMovie.ngayKhoiChieu).format("LL")}
               </p>
               <div className='flex items-center space-x-5'>
                 <div className='flex items-center '>
-                  <div className='bg-yellow-400 p-1 mr-2 rounded-md text-black font-bold'>
-                    IMDb
-                  </div>
+                  <div className='bg-yellow-400 p-1 mr-2 rounded-md text-black font-bold'>IMDb</div>
                   <span className='font-bold'>{infoMovie.danhGia}</span>
                 </div>
                 <div className='px-3 py-1 rounded bg-blue-500 hover:bg-blue-600 duration-300 cursor-pointer'>
@@ -148,9 +135,7 @@ export default function InfoMovieDesktop() {
                 <div className='text-white text-base'>
                   <div className='grid grid-cols-3 gap-1 '>
                     <p className='font-semibold'>Khởi chiếu</p>
-                    <p className='col-span-2'>
-                      {moment(infoMovie.ngayKhoiChieu).format("LL")}
-                    </p>
+                    <p className='col-span-2'>{moment(infoMovie.ngayKhoiChieu).format("LL")}</p>
                   </div>
                   <div className='grid grid-cols-3 gap-1  my-3'>
                     <p className='font-semibold'>Đạo diễn</p>
@@ -159,8 +144,7 @@ export default function InfoMovieDesktop() {
                   <div className='grid grid-cols-3 gap-1  my-3'>
                     <p className='font-semibold'>Diễn viên</p>
                     <p className='col-span-2'>
-                      Kyle Chandler, Rebecca Hall, Eiza González, Millie Bobby
-                      Brown
+                      Kyle Chandler, Rebecca Hall, Eiza González, Millie Bobby Brown
                     </p>
                   </div>
                   <div className='grid grid-cols-3 gap-1  my-3'>
@@ -188,9 +172,7 @@ export default function InfoMovieDesktop() {
                 strokeColor={"orange"}
                 type='circle'
                 percent={infoMovie.danhGia * 10}
-                format={(percent) => (
-                  <span className='text-orange-500'>{percent}</span>
-                )}
+                format={(percent) => <span className='text-orange-500'>{percent}</span>}
               />
               <Rate className='mt-4' allowHalf value={infoMovie.danhGia / 2} />
             </div>
@@ -209,6 +191,7 @@ export default function InfoMovieDesktop() {
                       src={htr.logo}
                       width={100}
                       className='hover:animate-pulse duration-1000'
+                      alt={htr.logo}
                     />
                   ),
                   children: (
@@ -221,53 +204,38 @@ export default function InfoMovieDesktop() {
                                 src={tenRap.hinhAnh}
                                 width={100}
                                 className='py-3'
+                                alt={tenRap.hinhAnh}
                               />
                               <div className='m-4'>
-                                <h2 className='text-3xl font-semibold mb-4'>
-                                  {tenRap.tenCumRap}
-                                </h2>
-                                <p style={{ color: "#9B9B9B" }}>
-                                  {tenRap.diaChi}
-                                </p>
+                                <h2 className='text-3xl font-semibold mb-4'>{tenRap.tenCumRap}</h2>
+                                <p style={{ color: "#9B9B9B" }}>{tenRap.diaChi}</p>
                               </div>
                             </div>
 
                             <div className='grid md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-4 mt-5'>
-                              {tenRap.lichChieuPhim
-                                .slice(0, 10)
-                                .map((gioChieu, index) => {
-                                  return (
-                                    <NavLink
-                                      key={index}
-                                      to={
-                                        info
-                                          ? `/ticketroom/${gioChieu.maLichChieu}`
-                                          : "/login"
-                                      }
-                                    >
-                                      <div
-                                        id='btnDatVe'
-                                        style={{
-                                          borderColor: "#e4e4e4",
-                                          background: `rgba(246,246,246,0.5)`,
-                                        }}
-                                        className='font-semibold  px-3 py-1 text-center  border duration-300 hover:scale-110  cursor-pointer'
-                                      >
-                                        <span className='text-gray-400 '>
-                                          {moment(
-                                            infoMovie.ngayChieuGioChieu,
-                                          ).format("LL")}
-                                        </span>
-                                        <span> - </span>
-                                        <span className='text-green-500 duration-300 gioChieu'>
-                                          {moment(
-                                            infoMovie.ngayChieuGioChieu,
-                                          ).format("LT")}
-                                        </span>
-                                      </div>
-                                    </NavLink>
-                                  );
-                                })}
+                              {tenRap.lichChieuPhim.slice(0, 10).map((gioChieu, index) => {
+                                return (
+                                  <NavLink
+                                    key={index}
+                                    to={info ? `/ticketroom/${gioChieu.maLichChieu}` : "/login"}>
+                                    <div
+                                      id='btnDatVe'
+                                      style={{
+                                        borderColor: "#e4e4e4",
+                                        background: `rgba(246,246,246,0.5)`,
+                                      }}
+                                      className='font-semibold  px-3 py-1 text-center  border duration-300 hover:scale-110  cursor-pointer'>
+                                      <span className='text-gray-400 '>
+                                        {moment(infoMovie.ngayChieuGioChieu).format("LL")}
+                                      </span>
+                                      <span> - </span>
+                                      <span className='text-green-500 duration-300 gioChieu'>
+                                        {moment(infoMovie.ngayChieuGioChieu).format("LT")}
+                                      </span>
+                                    </div>
+                                  </NavLink>
+                                );
+                              })}
                             </div>
                           </div>
                         );

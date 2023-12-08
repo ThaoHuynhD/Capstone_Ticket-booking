@@ -49,15 +49,13 @@ export default function UserInfo() {
             />
             <div className='flex-grow sm:pl-8'>
               <p>
-                Ngày đặt : {moment(item.ngayDat).format("ll")} -{" "}
-                {moment(item.ngayDat).format("LT")}
+                Ngày đặt : {moment(item.ngayDat).format("ll")} - {moment(item.ngayDat).format("LT")}
               </p>
               <h2 className='title-font font-medium text-lg text-orange-500'>
                 Tên Phim: {item.tenPhim}
               </h2>
               <p>
-                Thời lượng: {item.thoiLuongPhim}p , giá vé :
-                {item.giaVe.toLocaleString()} vnđ
+                Thời lượng: {item.thoiLuongPhim}p , giá vé :{item.giaVe.toLocaleString()} vnđ
               </p>
               <p className='text-green-500 text-lg'>{seats.tenHeThongRap}</p>
               <p>
@@ -99,11 +97,7 @@ export default function UserInfo() {
           showCloseButton: true,
         }).then((result) => {
           if (result.isConfirmed) {
-            Swal.fire(
-              "Thông tin đã được cập nhật!",
-              "Vui lòng đăng nhập lại.",
-              "success",
-            );
+            Swal.fire("Thông tin đã được cập nhật!", "Vui lòng đăng nhập lại.", "success");
             setTimeout(() => {
               navigate("/login");
             }, 1500);
@@ -111,7 +105,6 @@ export default function UserInfo() {
         });
       })
       .catch((err) => {
-        console.log(err);
         message.error("Cập nhật không thành công");
       });
   };
@@ -121,17 +114,14 @@ export default function UserInfo() {
       style={{
         background: `url(../image/backapp.jpg)`,
         height: "100%",
-      }}
-    >
+      }}>
       <section className='text-gray-600 body-font'>
         <div className='container px-5 py-24 mx-auto'>
           <div className=' w-full mb-20  p-4 formInfo'>
             <h1 className='text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest'>
               Thông tin tài khoản
             </h1>
-            <p className='lg:w-2/3 leading-relaxed text-base'>
-              Thông tin có thể thay đổi
-            </p>
+            <p className='lg:w-2/3 leading-relaxed text-base'>Thông tin có thể thay đổi</p>
             <Form
               layout='vertical'
               form={form}
@@ -140,8 +130,7 @@ export default function UserInfo() {
               style={{
                 width: "100%",
               }}
-              className=' md:grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-2 xl:gap-4'
-            >
+              className=' md:grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-2 xl:gap-4'>
               <Form.Item
                 label='Tài khoản'
                 name='taiKhoan'
@@ -150,9 +139,8 @@ export default function UserInfo() {
                     required: true,
                     message: "Vui lòng nhập tài khoản!",
                   },
-                ]}
-              >
-                <Input autoComplete='username' />
+                ]}>
+                <Input disabled autoComplete='username' />
               </Form.Item>
 
               <Form.Item
@@ -163,8 +151,7 @@ export default function UserInfo() {
                     required: true,
                     message: "Vui lòng nhập mật khẩu!",
                   },
-                ]}
-              >
+                ]}>
                 <Input.Password
                   autoComplete='current-password'
                   style={{
@@ -187,8 +174,7 @@ export default function UserInfo() {
                     required: true,
                     message: "Vui lòng nhập vào email!",
                   },
-                ]}
-              >
+                ]}>
                 <Input />
               </Form.Item>
 
@@ -202,8 +188,7 @@ export default function UserInfo() {
                     message: "Vui lòng nhập vào Họ tên!",
                     whitespace: true,
                   },
-                ]}
-              >
+                ]}>
                 <Input />
               </Form.Item>
 
@@ -215,8 +200,7 @@ export default function UserInfo() {
                     required: true,
                     message: "Vui lòng nhập vào số điện thoại!",
                   },
-                ]}
-              >
+                ]}>
                 <Input />
               </Form.Item>
               <Form.Item name='maLoaiNguoiDung' label='Loại'>
@@ -227,19 +211,14 @@ export default function UserInfo() {
                 <Button
                   type='undefined'
                   htmlType='submit'
-                  className=' bg-orange-300 hover:bg-orange-600 duration-300 flex justify-center items-center'
-                >
+                  className=' bg-orange-300 hover:bg-orange-600 duration-300 flex justify-center items-center'>
                   Cập nhật
                 </Button>
               </Form.Item>
             </Form>
           </div>
-          <h1 className='text-center text-white text-4xl font-bold'>
-            Lịch sử đặt vé
-          </h1>
-          <div className='flex flex-wrap  formInfo'>
-            {renderThongTinVeDaDat()}
-          </div>
+          <h1 className='text-center text-white text-4xl font-bold'>Lịch sử đặt vé</h1>
+          <div className='flex flex-wrap  formInfo'>{renderThongTinVeDaDat()}</div>
         </div>
       </section>
     </div>

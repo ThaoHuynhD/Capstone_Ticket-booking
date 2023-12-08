@@ -4,10 +4,7 @@ import { Collapse, Tabs } from "antd";
 import moment from "moment/moment";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  handleLoadingOn,
-  handleLoadingOff,
-} from "../../../redux/reducer/spinnerSlice";
+import { handleLoadingOn, handleLoadingOff } from "../../../redux/reducer/spinnerSlice";
 
 export default function TabsMovieMobile() {
   const [danhSachHeThongRap, setDanhSachHeThongRap] = useState([]);
@@ -28,40 +25,29 @@ export default function TabsMovieMobile() {
       }
     };
     fetchDataMovieTheater();
-  }, []);
+  }, [dispatch]);
   let handleRenderLichChieu = (dsPhim) => {
     return dsPhim.map((phim, index) => {
       return (
         <div key={index} className='mb-4 pb-5 border-b-2 border-b-zinc-200'>
           <div className='flex items-center mb-5'>
-            <img
-              loading='lazy'
-              src={phim.hinhAnh}
-              style={{ width: 60 }}
-              alt={phim.hinhAnh}
-            />
+            <img loading='lazy' src={phim.hinhAnh} style={{ width: 60 }} alt={phim.hinhAnh} />
             <div className='ml-5'>
-              <p className='text-base md:text-lg lg:text-xl font-semibold '>
-                {phim.tenPhim}
-              </p>
+              <p className='text-base md:text-lg lg:text-xl font-semibold '>{phim.tenPhim}</p>
               <p>120 Phút</p>
             </div>
           </div>
           <div className='grid grid-cols-1 gap-4 '>
             {phim.lstLichChieuTheoPhim.slice(0, 8).map((gioChieu, index) => {
               return (
-                <NavLink
-                  key={index}
-                  to={info ? `/ticketroom/${gioChieu.maLichChieu}` : `/login`}
-                >
+                <NavLink key={index} to={info ? `/ticketroom/${gioChieu.maLichChieu}` : `/login`}>
                   <div
                     id='btnDatVe'
                     style={{
                       borderColor: "#e4e4e4",
                       background: `rgba(246,246,246,0.5)`,
                     }}
-                    className='font-semibold  px-3 py-1 text-center border duration-300 hover:scale-105 cursor-pointer'
-                  >
+                    className='font-semibold  px-3 py-1 text-center border duration-300 hover:scale-105 cursor-pointer'>
                     <span className='text-gray-400'>
                       {moment(gioChieu.ngayChieuGioChieu).format("LL")}
                     </span>
@@ -82,9 +68,7 @@ export default function TabsMovieMobile() {
     return danhSachHeThongRap.map((heThongRap, index) => {
       return {
         key: index,
-        label: (
-          <img src={heThongRap.logo} className='w-16' alt={heThongRap.logo} />
-        ),
+        label: <img src={heThongRap.logo} className='w-16' alt={heThongRap.logo} />,
         children: (
           <Collapse
             defaultActiveKey={["1"]}
@@ -101,10 +85,7 @@ export default function TabsMovieMobile() {
                   </div>
                 ),
                 children: (
-                  <div
-                    className='listPhim p-3'
-                    style={{ height: 800, overflow: "auto" }}
-                  >
+                  <div className='listPhim p-3' style={{ height: 800, overflow: "auto" }}>
                     {handleRenderLichChieu(cumRap.danhSachPhim)}
                   </div>
                 ),

@@ -33,20 +33,17 @@ export default function FeaturesMovie() {
         <Fragment key={index}>
           <div className='feature__item'>
             <div className='feature__img'>
-              <img src={item.hinhAnh} loading='lazy' />
+              <img src={item.hinhAnh} loading='lazy' alt='...' />
             </div>
             <div className='features__info flex flex-col'>
               <h3 className='text-center font-bold mt-1 md:mt-2 text-base md:text-lg'>
                 {item.tenPhim}
               </h3>
               <span className='text-[13px]'>
-                {item.moTa.length > 50
-                  ? item.moTa.slice(0, 50) + "..."
-                  : item.moTa}
+                {item.moTa.length > 50 ? item.moTa.slice(0, 50) + "..." : item.moTa}
               </span>
               <p className='text-sm md:text-base'>
-                Khởi chiếu:{" "}
-                <span>{moment(item.ngayKhoiChieu).format("ll")}</span>
+                Khởi chiếu: <span>{moment(item.ngayKhoiChieu).format("ll")}</span>
               </p>
               <div></div>
             </div>
@@ -63,9 +60,7 @@ export default function FeaturesMovie() {
                   <span>Thể loại: </span> Mystery
                 </p>
                 <div className='flex items-center text-white'>
-                  <div className='bg-yellow-400 p-1 mr-4 rounded-md text-black font-bold'>
-                    IMDb
-                  </div>
+                  <div className='bg-yellow-400 p-1 mr-4 rounded-md text-black font-bold'>IMDb</div>
                   <span>{item.danhGia}</span>
                 </div>
               </div>
@@ -76,8 +71,7 @@ export default function FeaturesMovie() {
                     dispatch(getTrailer(item.trailer));
                     setOpen(true);
                   }}
-                  className='opacity-70 hover:opacity-100 duration-300'
-                >
+                  className='opacity-70 hover:opacity-100 duration-300'>
                   <i className='fa-solid fa-play bg-orange-500 h-6 w-6 leading-6 text-white mr-1 rounded-full '></i>
                   <span>Trailer</span>
                 </button>
@@ -95,14 +89,8 @@ export default function FeaturesMovie() {
                   }}
                   onClose={onCloseModal}
                   closeIcon={<i className='fa-solid fa-x text-white'></i>}
-                  center
-                >
-                  <ReactPlayer
-                    controls={true}
-                    url={trailer}
-                    width={"100%"}
-                    height={"100%"}
-                  />
+                  center>
+                  <ReactPlayer controls={true} url={trailer} width={"100%"} height={"100%"} />
                 </Modal>
                 <NavLink to={`/detail/${item.maPhim}`}>
                   <button className='opacity-70 hover:opacity-100 duration-300'>

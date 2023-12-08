@@ -8,10 +8,7 @@ import "./info.scss";
 import ReactPlayer from "react-player";
 import { Modal } from "react-responsive-modal";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  handleLoadingOn,
-  handleLoadingOff,
-} from "../../redux/reducer/spinnerSlice";
+import { handleLoadingOn, handleLoadingOff } from "../../redux/reducer/spinnerSlice";
 export default function InfoMovieMobile() {
   const param = useParams();
   const [infoMovie, setInfoMovie] = useState({});
@@ -40,7 +37,7 @@ export default function InfoMovieMobile() {
       }
     };
     fetchDataInfoMovie();
-  }, []);
+  }, [dispatch, param.id]);
   useEffect(() => {
     let fetchDataInfoShowtimes = async () => {
       try {
@@ -51,26 +48,21 @@ export default function InfoMovieMobile() {
       }
     };
     fetchDataInfoShowtimes();
-  }, []);
+  }, [param.id]);
 
   return (
     <div style={{ color: "#e9e9e9", background: `rgb(10, 32, 41)` }}>
-      <div
-        className='h-viewH40'
-        style={{ width: "100%", position: "relative" }}
-      >
+      <div className='h-viewH40' style={{ width: "100%", position: "relative" }}>
         <div
           className='absolute top-0 left-0 right-0 bottom-0 '
           style={{
             background: `url(${infoMovie.hinhAnh}) top center/cover no-repeat`,
-          }}
-        ></div>
+          }}></div>
         <div
           className='absolute top-0 left-0 right-0 bottom-0'
           style={{
             background: `linear-gradient(to top, rgb(10, 32, 41), transparent 100%)`,
-          }}
-        >
+          }}>
           <button
             className='opacity-75 hover:opacity-100'
             style={{
@@ -81,8 +73,7 @@ export default function InfoMovieMobile() {
               transform: `translateX(-50%)`,
               fontSize: "50px",
             }}
-            onClick={onOpenModal}
-          >
+            onClick={onOpenModal}>
             <i className='fa-regular fa-circle-play'></i>
           </button>
           <Modal
@@ -102,14 +93,8 @@ export default function InfoMovieMobile() {
             }}
             onClose={onCloseModal}
             closeIcon={<i className='fa-solid fa-x text-white'></i>}
-            center
-          >
-            <ReactPlayer
-              controls={true}
-              url={infoMovie.trailer}
-              width={"100%"}
-              height={"100%"}
-            />
+            center>
+            <ReactPlayer controls={true} url={infoMovie.trailer} width={"100%"} height={"100%"} />
           </Modal>
         </div>
       </div>
@@ -124,9 +109,7 @@ export default function InfoMovieMobile() {
         <p className='my-4'>120 Minutes - 2D/Digital</p>
         <div className='flex items-center space-x-5'>
           <div className='flex items-center '>
-            <div className='bg-yellow-400 p-1 mr-2 rounded-md text-black font-bold'>
-              IMDb
-            </div>
+            <div className='bg-yellow-400 p-1 mr-2 rounded-md text-black font-bold'>IMDb</div>
             <span className='font-bold'>{infoMovie.danhGia}</span>
           </div>
           <div className='flex items-center  px-3 py-1 rounded bg-blue-500 hover:bg-blue-600 duration-300 cursor-pointer'>
@@ -169,6 +152,7 @@ export default function InfoMovieMobile() {
                             src={htr.logo}
                             width={60}
                             className='hover:animate-pulse duration-1000'
+                            alt={htr.logo}
                           />
                         ),
                         children: (
@@ -178,58 +162,40 @@ export default function InfoMovieMobile() {
                                 key: index,
                                 label: (
                                   <div className='flex'>
-                                    <img
-                                      width={60}
-                                      src={item.hinhAnh}
-                                      alt={item.hinhAnh}
-                                    />
+                                    <img width={60} src={item.hinhAnh} alt={item.hinhAnh} />
                                     <div className='ml-4'>
-                                      <h3 className='text-xl font-semibold'>
-                                        {item.tenCumRap}
-                                      </h3>
-                                      <p className='text-gray-300'>
-                                        {item.diaChi}
-                                      </p>
+                                      <h3 className='text-xl font-semibold'>{item.tenCumRap}</h3>
+                                      <p className='text-gray-300'>{item.diaChi}</p>
                                     </div>
                                   </div>
                                 ),
                                 children: (
                                   <div className='grid grid-cols-1 gap-6'>
-                                    {item.lichChieuPhim?.map(
-                                      (lichChieu, index) => {
-                                        return (
-                                          <NavLink
-                                            to={
-                                              info
-                                                ? `/ticketroom/${lichChieu.maLichChieu}`
-                                                : "/login"
-                                            }
-                                            key={index}
-                                          >
-                                            <div
-                                              id='btnDatVe'
-                                              style={{
-                                                borderColor: "#e4e4e4",
-                                                background: `rgba(246,246,246,0.5)`,
-                                              }}
-                                              className='font-semibold  px-3 py-1 text-center  border duration-300 hover:scale-110 cursor-pointer'
-                                            >
-                                              <span className='text-gray-400 '>
-                                                {moment(
-                                                  infoMovie.ngayChieuGioChieu,
-                                                ).format("LL")}
-                                              </span>
-                                              <span> - </span>
-                                              <span className='text-green-500 gioChieu '>
-                                                {moment(
-                                                  infoMovie.ngayChieuGioChieu,
-                                                ).format("LT")}
-                                              </span>
-                                            </div>
-                                          </NavLink>
-                                        );
-                                      },
-                                    )}
+                                    {item.lichChieuPhim?.map((lichChieu, index) => {
+                                      return (
+                                        <NavLink
+                                          to={
+                                            info ? `/ticketroom/${lichChieu.maLichChieu}` : "/login"
+                                          }
+                                          key={index}>
+                                          <div
+                                            id='btnDatVe'
+                                            style={{
+                                              borderColor: "#e4e4e4",
+                                              background: `rgba(246,246,246,0.5)`,
+                                            }}
+                                            className='font-semibold  px-3 py-1 text-center  border duration-300 hover:scale-110 cursor-pointer'>
+                                            <span className='text-gray-400 '>
+                                              {moment(infoMovie.ngayChieuGioChieu).format("LL")}
+                                            </span>
+                                            <span> - </span>
+                                            <span className='text-green-500 gioChieu '>
+                                              {moment(infoMovie.ngayChieuGioChieu).format("LT")}
+                                            </span>
+                                          </div>
+                                        </NavLink>
+                                      );
+                                    })}
                                   </div>
                                 ),
                               };
@@ -255,9 +221,7 @@ export default function InfoMovieMobile() {
                   <div className='text-white text-base'>
                     <div className='grid grid-cols-3 gap-1 px-5'>
                       <p className='font-semibold'>Khởi chiếu</p>
-                      <p className='col-span-2'>
-                        {moment(infoMovie.ngayKhoiChieu).format("LL")}
-                      </p>
+                      <p className='col-span-2'>{moment(infoMovie.ngayKhoiChieu).format("LL")}</p>
                     </div>
                     <div className='grid grid-cols-3 gap-1 px-5 my-3'>
                       <p className='font-semibold'>Đạo diễn</p>
@@ -266,8 +230,7 @@ export default function InfoMovieMobile() {
                     <div className='grid grid-cols-3 gap-1 px-5 my-3'>
                       <p className='font-semibold'>Diễn viên</p>
                       <p className='col-span-2'>
-                        Kyle Chandler, Rebecca Hall, Eiza González, Millie Bobby
-                        Brown
+                        Kyle Chandler, Rebecca Hall, Eiza González, Millie Bobby Brown
                       </p>
                     </div>
                     <div className='grid grid-cols-3 gap-1 px-5 my-3'>
@@ -299,16 +262,14 @@ export default function InfoMovieMobile() {
           style={{
             background: `url(../image/footer/footer_bg.png) center / cover no-repeat`,
             height: "100%",
-          }}
-        >
+          }}>
           <div className='container grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-5 md:grid-cols-4 md:gap-7 '>
             <div>
-              <img src='../image/logo_movie.png' className='mb-4 md:mt-8' />
+              <img src='../image/logo_movie.png' className='mb-4 md:mt-8' alt='...' />
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
               </p>
             </div>
 
@@ -316,9 +277,7 @@ export default function InfoMovieMobile() {
               <h4>Liên hệ</h4>
               <div className='flex items-center '>
                 <i className='fa-solid fa-location-arrow mr-4'></i>
-                <p className='md:text-sm xl:text-base'>
-                  Lorem ipsum dolor sit.
-                </p>
+                <p className='md:text-sm xl:text-base'>Lorem ipsum dolor sit.</p>
               </div>
               <div className='flex items-center '>
                 <i className='fa-regular fa-envelope mr-4'></i>
@@ -332,10 +291,7 @@ export default function InfoMovieMobile() {
           </div>
         </div>
         <div className='footer__bottom bg-black py-5'>
-          <div
-            className=' container  flex justify-between'
-            style={{ color: "#666666" }}
-          >
+          <div className=' container  flex justify-between' style={{ color: "#666666" }}>
             <div>©copyright 2016 Movie</div>
             <div className='space-x-4 cursor-pointer'>
               <NavLink to={"https://www.facebook.com/"}>

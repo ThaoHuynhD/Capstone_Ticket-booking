@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { localService } from "../Services/localService";
@@ -23,6 +23,7 @@ export default function Header() {
               <img
                 src={`https://i.pravatar.cc/150?u=${info.hoTen}`}
                 className='w-8 rounded-full'
+                alt='...'
               />
               {info.hoTen}
             </span>
@@ -30,8 +31,7 @@ export default function Header() {
 
           <button
             onClick={handleLogOut}
-            className='ml-3 hover:text-orange-500 duration-300'
-          >
+            className='ml-3 hover:text-orange-500 duration-300'>
             <i className='fa-solid fa-right-from-bracket mr-2'></i>
             <span>Đăng xuất</span>
           </button>
@@ -44,8 +44,7 @@ export default function Header() {
             className='mr-4 hover:text-orange-500 duration-300'
             onClick={() => {
               navigate("/login");
-            }}
-          >
+            }}>
             <i className='fa-solid fa-user mr-2'></i>
             <span>Đăng nhập</span>
           </button>
@@ -53,8 +52,7 @@ export default function Header() {
             className='hover:text-orange-500 duration-300'
             onClick={() => {
               navigate("/register");
-            }}
-          >
+            }}>
             <i className='fa-solid fa-unlock mr-2'></i>
             <span>Đăng ký</span>
           </button>
@@ -69,8 +67,7 @@ export default function Header() {
           <div className='flex items-center'>
             <div
               className='hidden lg:block  text-white  text-sm'
-              style={{ background: "#9F599B", padding: "8px 15px" }}
-            >
+              style={{ background: "#9F599B", padding: "8px 15px" }}>
               <i className='fa fa-apple-alt'></i>
               <strong>
                 VIP <em>SWEEPSTAKES</em>
@@ -78,8 +75,7 @@ export default function Header() {
             </div>
             <div
               className='ml-4 hidden lg:block'
-              style={{ padding: "8px 15px", fontSize: "14px" }}
-            >
+              style={{ padding: "8px 15px", fontSize: "14px" }}>
               <strong className='text-orange-500 mr-2'>
                 $5000 SHOPPING SPREE
               </strong>
@@ -98,7 +94,11 @@ export default function Header() {
         <nav>
           <div className='logo'>
             <NavLink to={"/"}>
-              <img src='../image/logo_2.png' className='w-24 sm:w-36' />
+              <img
+                src='../image/logo_2.png'
+                className='w-24 sm:w-36'
+                alt='...'
+              />
             </NavLink>
           </div>
           <input type='checkbox' id='menu-toggle' />
