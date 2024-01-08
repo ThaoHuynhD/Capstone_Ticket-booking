@@ -63,7 +63,6 @@ export default function BookTicketDesktop() {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Bạn đã thanh toán thành công!", "Vui lòng kiểm tra lịch sử đặt vé.", "success");
-
         bookTicket(thongTinDatVe)
           .then((res) => {
             setTimeout(() => {
