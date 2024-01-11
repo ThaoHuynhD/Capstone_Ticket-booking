@@ -47,6 +47,8 @@ export default function BookTicketDesktop() {
   useEffect(() => {
     fetchThongTinPhongVe();
   }, []);
+  console.log("😐 ~ handleBookTicket ~ danhSachGheDangDat:👉", danhSachGheDangDat)
+
   const handleBookTicket = () => {
     let thongTinDatVe = new ThongTinDatVe();
     thongTinDatVe.maLichChieu = Number(param.id);
