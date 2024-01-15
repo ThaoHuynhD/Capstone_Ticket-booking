@@ -28,7 +28,7 @@ export default function FeaturesMovie() {
     fetchData();
   }, []);
   let renderMovie = () => {
-    return movieArr.slice(3, 8).map((item, index) => {
+    return movieArr.slice(2, 7).map((item, index) => {
       return (
         <Fragment key={index}>
           <div className='feature__item'>
