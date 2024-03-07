@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function UserInfo() {
   const [thongTinUser, setThongTinUser] = useState({});
+  console.log("😐 ~ UserInfo ~ thongTinUser:👉", thongTinUser);
   const [form] = Form.useForm();
   let navigate = useNavigate();
   useEffect(() => {

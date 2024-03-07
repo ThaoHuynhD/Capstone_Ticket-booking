@@ -11,61 +11,67 @@ import UserInfo from "./page/UserInfo/UserInfo";
 import PageNotFound from "./page/Page_404/PageNotFound";
 import "moment/locale/vi";
 
+const userRoutes = [
+  {
+    path: "/",
+    element: (
+      <Layout>
+        <Home />
+      </Layout>
+    ),
+  },
+  {
+    path: "/detail/:id",
+    element: (
+      <Layout>
+        <InfoMovie />
+      </Layout>
+    ),
+  },
+  {
+    path: "/login",
+    element: (
+      <Layout>
+        <Login />
+      </Layout>
+    ),
+  },
+  {
+    path: "/register",
+    element: (
+      <Layout>
+        <Register />
+      </Layout>
+    ),
+  },
+  {
+    path: "/ticketroom/:id",
+    element: (
+      <Layout>
+        <BookTicket />
+      </Layout>
+    ),
+  },
+  {
+    path: "/profile",
+    element: (
+      <Layout>
+        <UserInfo />
+      </Layout>
+    ),
+  },
+  { path: "*", element: <PageNotFound /> },
+];
+
 function App() {
   return (
     <div>
       <Loading />
       <BrowserRouter>
         <Routes>
-          <Route
-            path='/'
-            element={
-              <Layout>
-                <Home />
-              </Layout>
-            }
-          />
-          <Route
-            path='/detail/:id'
-            element={
-              <Layout>
-                <InfoMovie />
-              </Layout>
-            }
-          />
-          <Route
-            path='/login'
-            element={
-              <Layout>
-                <Login />
-              </Layout>
-            }
-          />
-          <Route
-            path='/register'
-            element={
-              <Layout>
-                <Register />
-              </Layout>
-            }
-          />
-          <Route
-            path='/ticketroom/:id'
-            element={
-              <Layout>
-                <BookTicket />
-              </Layout>
-            }
-          />
-          <Route
-            path='/profile'
-            element={
-              <Layout>
-                <UserInfo />
-              </Layout>
-            }
-          />
-          <Route path='*' element={<PageNotFound />} />
+          {userRoutes.map((route, index) => {
+            return <Route key={index} path={route.path} element={route.element} />;
+          })}
         </Routes>
       </BrowserRouter>
     </div>

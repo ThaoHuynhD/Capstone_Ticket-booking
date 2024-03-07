@@ -22,15 +22,6 @@ export default function BookTicketDesktop() {
     (state) => state.bookingReducer,
   );
 
-  // let fetchThongTinPhongVe = async () => {
-  //   try {
-  //     let res = await getTicketRoom(param.id);
-  //     setTicketRoom(res.data.content);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
   let fetchThongTinPhongVe = () => {
     getTicketRoom(param.id)
       .then((res) => {
@@ -47,7 +38,6 @@ export default function BookTicketDesktop() {
   useEffect(() => {
     fetchThongTinPhongVe();
   }, []);
-  console.log("😐 ~ handleBookTicket ~ danhSachGheDangDat:👉", danhSachGheDangDat)
 
   const handleBookTicket = () => {
     let thongTinDatVe = new ThongTinDatVe();
@@ -188,7 +178,7 @@ export default function BookTicketDesktop() {
               </div>
             </div>
           </div>
-          <div id='info__ticket' className='border-2 border-gray-400 p-4 shadow-lg  mr-5'>
+          <div id='info__ticket' className='border-2 border-gray-400 p-4 shadow-lg mr-5'>
             <h3 className='text-center p-10 text-3xl text-orange-400 font-bold'>
               {danhSachGheDangDat
                 .reduce((tongTien, giaVe) => {

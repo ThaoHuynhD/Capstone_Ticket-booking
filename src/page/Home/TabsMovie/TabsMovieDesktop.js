@@ -9,7 +9,6 @@ import { handleLoadingOff, handleLoadingOn } from "../../../redux/reducer/spinne
 
 export default function TabsMovieDesktop() {
   const [danhSachHeThongRap, setDanhSachHeThongRap] = useState([]);
-  console.log("😐 ~ TabsMovieDesktop ~ danhSachHeThongRap:👉", danhSachHeThongRap)
   let dispatch = useDispatch();
   const { info } = useSelector((state) => state.userReducer);
   useEffect(() => {
@@ -50,13 +49,9 @@ export default function TabsMovieDesktop() {
                       background: `rgba(246,246,246,0.5)`,
                     }}
                     className='font-semibold  px-3 py-1 text-center border duration-300 hover:scale-105 cursor-pointer'>
-                    <span className='text-gray-400'>
-                      {moment(gioChieu.ngayChieuGioChieu).format("LL")}
-                    </span>
+                    <span className='text-gray-400'>{moment(gioChieu.ngayChieuGioChieu).format("LL")}</span>
                     <span> - </span>
-                    <span className='text-green-500 gioChieu'>
-                      {moment(gioChieu.ngayChieuGioChieu).format("LT")}
-                    </span>
+                    <span className='text-green-500 gioChieu'>{moment(gioChieu.ngayChieuGioChieu).format("LT")}</span>
                   </div>
                 </NavLink>
               );
@@ -88,11 +83,7 @@ export default function TabsMovieDesktop() {
                       {cumRap.tenCumRap}
                     </p>
                     <Popover content={<span className='text-gray-400'>{cumRap.diaChi}</span>}>
-                      <span className='text-gray-300'>
-                        {cumRap.diaChi.length > 30
-                          ? cumRap.diaChi.slice(0, 30) + "..."
-                          : cumRap.diaChi}
-                      </span>
+                      <span className='text-gray-300'>{cumRap.diaChi.length > 30 ? cumRap.diaChi.slice(0, 30) + "..." : cumRap.diaChi}</span>
                     </Popover>
                   </div>
                 ),
