@@ -9,7 +9,7 @@ export default function Login() {
       <div
         className='flex justify-center items-center '
         style={{
-          background: "url(./image/backapp.jpg) center / cover no-repeat",
+          background: "url(https://i.pinimg.com/564x/91/83/eb/9183eb5441a11f8117eb13e18b56aa8e.jpg) center / cover no-repeat",
           height: "100vh",
         }}
       >
